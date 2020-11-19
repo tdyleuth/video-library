@@ -1,0 +1,76 @@
+.login-container {
+    display: flex;
+    margin: 4rem 0 0 0;
+    justify-content: center;
+    padding: 2em 4em 2em 4em;
+}
+
+.login-submit-form > h2 {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 35px;
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #f1f1f1;
+    width: 100%;
+    padding: 2rem;
+    max-width: 50%;
+    background-color: rgb(38, 125, 212);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0 #000;
+}
+
+.form-login-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 1em 3em 1em 3em;
+    padding: 1rem;
+    height: 60px;
+    background-color: rgb(79, 209, 111);
+    font-size: 25px;
+    border-radius: 10px;
+}
+.login-submit-form > input[type='text'],
+input[type='password'],
+input[type='email'] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+.email-label {
+    font-size: 24px;
+    color: white;
+}
+
+.password-label {
+    font-size: 24px;
+    color: white;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-link {
+    display: flex;
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-link a {
+    color: rgb(182, 2, 2);
+}

@@ -1,0 +1,75 @@
+.signup-container {
+    display: flex;
+    margin: 4rem 0 0 0;
+    justify-content: center;
+    padding: 2em 4em 2em 4em;
+}
+
+.signup-submit-form > h2 {
+    color: white;
+    margin-bottom: 2rem;
+    font-size: 35px;
+    text-align: center;
+}
+
+.signup-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #f1f1f1;
+    width: 100%;
+    padding: 2rem;
+    max-width: 50%;
+    background-color: rgb(204, 75, 58);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 0 #000;
+}
+
+.form-signup-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 1em 3em 1em 3em;
+    padding: 1rem;
+    height: 60px;
+    background-color: rgb(95, 144, 235);
+    font-size: 25px;
+    border-radius: 10px;
+}
+.signup-submit-form > input[type='text'],
+input[type='password'] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+.email-label {
+    font-size: 24px;
+    color: white;
+}
+
+.password-label {
+    font-size: 24px;
+    color: white;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.login-link {
+    display: flex;
+    color: white;
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-link a {
+    color: rgb(69, 35, 221);
+}
