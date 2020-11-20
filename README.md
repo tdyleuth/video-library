@@ -33,8 +33,8 @@ npm run start
 
 <h2> Built with  </h2>
 <ul>
-  <li>FrontEnd: <b> React.JS, HTML/CSS </b></li>
-  <li>Backend:  <b> Node.JS, Express.JS </b> </li>
+  <li>Front-End: <b> React.JS, HTML/CSS </b></li>
+  <li>Back-End:  <b> Node.JS, Express.JS </b> </li>
   <li>Database: <b> MongoDB, Mongoose </b> </li>
 </ul>
 
