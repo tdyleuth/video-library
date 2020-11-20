@@ -54,4 +54,5 @@ npm run start
   <li> <b>GET</b> /api/videos </li>
   <li> <b>POST</b> /api/video/ </li>
   <li> <b>DELETE</b> /api/video/:id  </li>
+  <li> <b>UPDATE</b> /api/video/:id  </li>
 </ul>
