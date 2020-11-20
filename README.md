@@ -11,6 +11,17 @@ A Full stack MERN web application for storing Video information content in a lib
 
 <h2>Installation:</h2>
 
+Install Mongo DB:
+
+```bash
+$ brew tap mongodb/brew
+$ brew install mongodb-community
+$ brew services start mongodb-community
+$ mkdir -p /data/db
+$ brew services start mongodb
+$ mongo > use videos
+```
+
 Create .env file in server directory to include and insert JWT_SECRET=SECRET 
 
 Use the package manager [npm](https://www.npmjs.com/) to install Video-Library.
