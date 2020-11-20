@@ -7,7 +7,7 @@ A Full stack MERN web application for storing Video Information where user can b
 <small>This project is still in progess. Features currently still working on include: Updating Video functionality, Dynamic rendering of Deleted videos, Updating email and password of users, and Filter component for videos.  </small>
 
 <h3>Estimated Time To Complete:<h3>
- <small>One Week<small>
+ <small>1-2 Weeks<small>
 
 <h2>Installation:</h2>
 
