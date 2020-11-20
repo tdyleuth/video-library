@@ -41,10 +41,12 @@ npm run start
 
 <h2> Features </h2>
 <ul>
-  <li> Login/ Sign Up / Log Out the user. </li>
+  <li> Login / Sign Up / Log Out the user. </li>
   <li> Add a new video to the list.</li>
     <li> Delete video from list</li>
+  <li> Update video from list</li>
        <li> Search video by title </li>
+  <li> Filter Video by type, releaseDate, rating </li>
 </ul>
 
 <h2> API </h2>
