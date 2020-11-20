@@ -23,6 +23,9 @@ $ mongo > use videos
 ```
 
 Create .env file in server directory to include and insert JWT_SECRET=SECRET 
+```bash
+cd server touch .env
+```
 
 Use the package manager [npm](https://www.npmjs.com/) to install Video-Library.
 Setup the project and install the packages by running:
@@ -34,12 +37,14 @@ npm run install
 Run Back-End on server directory with command:
 
 ```bash
+cd server 
 npm run start:dev
 ```
 
 Run Front-End on client directory with command:
 
 ```bash
+cd client
 npm run start
 ```
 
