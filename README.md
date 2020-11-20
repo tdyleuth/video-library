@@ -19,13 +19,13 @@ Setup the project and install the packages by running:
 npm run install
 ```
 
-Run server on server directory with command
+Run Back-End on server directory with command
 
 ```bash
 npm run start:dev
 ```
 
-Run client on client directory with command
+Run Front-End on client directory with command
 
 ```bash
 npm run start
