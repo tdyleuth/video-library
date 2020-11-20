@@ -31,13 +31,13 @@ Setup the project and install the packages by running:
 npm run install
 ```
 
-Run Back-End on server directory with command
+Run Back-End on server directory with command:
 
 ```bash
 npm run start:dev
 ```
 
-Run Front-End on client directory with command
+Run Front-End on client directory with command:
 
 ```bash
 npm run start
