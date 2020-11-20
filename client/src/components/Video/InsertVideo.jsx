@@ -46,10 +46,22 @@ const InsertVideo = () => {
             const response = await api.createVideo(payload);
             console.log('Response', response);
             alert('Video Submission Successful!');
+
+            const resetInputField = () => {
+                setTitle('');
+                setRating('');
+                setReleaseDate('');
+                setSynopsis('');
+                setType('');
+                setCoverImage('');
+            };
+
+            resetInputField();
         } catch (err) {
             console.error(err);
         }
     };
+
     return (
         <div className='insert-video-container'>
             <div className='insert-video-form'>
@@ -112,7 +124,7 @@ const InsertVideo = () => {
                     <input
                         onChange={handleCoverImageInputChanges}
                         value={coverImage}
-                        type='text'
+                        type='url'
                         placeholder='Enter Cover Image URL'
                         required
                     ></input>

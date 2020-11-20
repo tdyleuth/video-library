@@ -18,7 +18,7 @@ const Signup = () => {
     const callSignupFunction = async (e) => {
         e.preventDefault();
         const payload = { email, password };
-        console.log('payload!!', payload);
+
         try {
             const response = await api.signup(payload);
             alert('Signup Success!');
@@ -27,8 +27,7 @@ const Signup = () => {
             console.error('Signup failed');
         }
     };
-    console.log('email', email);
-    console.log('password', password);
+
     return (
         <div className='signup-container'>
             <div className='signup-form'>

@@ -14,10 +14,10 @@ signup = (req, res) => {
             // Create JWT
             let token = jwt.sign(
                 {
-                    email,
+                    id: user._id,
                 },
                 TOKENSecret,
-                { expiresIn: '1h' }
+                { expiresIn: '2h' }
             );
             return res.status(201).json({
                 success: true,

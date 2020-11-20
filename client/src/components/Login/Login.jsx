@@ -3,7 +3,7 @@ import './Login.css';
 import api from '../../api/api';
 import { Link, Redirect } from 'react-router-dom';
 
-const Login = ({ isAuthed, setIsAuthed }) => {
+const Login = ({ setIsAuthed, isAuthed }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,16 +21,18 @@ const Login = ({ isAuthed, setIsAuthed }) => {
         console.log('payload!!', payload);
         try {
             const response = await api.loginUser(payload);
+
+            const { token } = response.data;
+            localStorage.setItem('token', token);
             setIsAuthed(true);
-            alert('Login Success');
-            console.log('Response', response);
+
+            alert(`${email} is login in!'`);
         } catch (err) {
             console.error('Login failed');
             alert('Login Failed! Try again');
         }
     };
-    console.log('email', email);
-    console.log('password', password);
+
     return (
         <div className='login-container'>
             <div className='login-form'>
@@ -56,10 +58,12 @@ const Login = ({ isAuthed, setIsAuthed }) => {
                     <input
                         onChange={handlePasswordInputChanges}
                         value={password}
+                        minLength='6'
                         type='password'
                         placeholder='Enter Password'
                         required
                     ></input>
+
                     <div>
                         <p className='signup-link'>
                             Not registered?&nbsp;
