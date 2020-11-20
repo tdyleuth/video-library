@@ -4,7 +4,7 @@ A Full stack MERN website for storing Video Information where user can browse an
 <img width="1438" alt="ss" src="https://user-images.githubusercontent.com/40449202/99756596-5d1a3800-2aa2-11eb-8194-460709b1b50e.png">
 
 <h2>Status</h2>
-<small>This project is still in progess. Features currently still working on include: Updating Video functionality, Dynamic rendering of Deleted videos, Updating email and password of users, and Filter components for videos.  </small>
+<small>This project is still in progess. Features currently still working on include: Updating Video functionality, Dynamic rendering of Deleted videos, Updating email and password of users, and Filter component for videos.  </small>
 <h3>Estimated Time of Completion<h3>
  <small>One Week<small>
 
