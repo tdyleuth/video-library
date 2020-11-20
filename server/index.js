@@ -20,7 +20,7 @@ server.use(bodyParser.urlencoded({ extended: true }));
 db.on('error', console.error.bind(console, 'Mongo connection error:'));
 
 server.get('/', (req, res) => {
-    res.send('Hello World!');
+    res.send('WELCOME TO THE VIDEO LIBRARY API');
 });
 
 server.use('/api', videoRouter, userRouter);
