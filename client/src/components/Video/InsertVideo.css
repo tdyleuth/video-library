@@ -1,11 +1,12 @@
 .insert-video-container {
     display: flex;
-    margin: 4rem 0 0 0;
+    margin: 2rem 4rem 2rem 4rem;
+    width: 50%;
     justify-content: center;
     padding: 2em 4em 2em 4em;
 }
 
-.insert-video-submit-form > h2 {
+.insert-video-form > form > h2 {
     color: white;
     margin-bottom: 2rem;
     font-size: 35px;
@@ -17,9 +18,8 @@
     align-items: center;
     justify-content: center;
     border: 3px solid #f1f1f1;
-    width: 100%;
+    width: 800px;
     padding: 2rem;
-    max-width: 50%;
     background-color: rgb(50, 53, 56);
     border-radius: 10px;
     box-shadow: 0px 0px 3px 0 #000;
@@ -33,18 +33,30 @@
     margin: 1em 3em 1em 3em;
     padding: 1rem;
     height: 60px;
-    background-color: rgb(224, 53, 53);
+    background-color: rgb(28, 177, 65);
     font-size: 25px;
     border-radius: 10px;
 }
-.insert-video-submit-form > input[type='text'],
+
+.form-insert-video-cancel-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin: 1em 3em 1em 3em;
+    padding: 1rem;
+    height: 60px;
+    background-color: rgb(201, 46, 46);
+    font-size: 25px;
+    border-radius: 10px;
+}
+.insert-video-form > form > input[type='text'],
 input[type='number'],
 input[type='date'],
 input[type='url'] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 5px 10px;
     margin: 8px 0;
-    display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: 20px;

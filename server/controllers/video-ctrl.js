@@ -26,6 +26,13 @@ createVideo = (req, res) => {
             return res.status(201).json({
                 success: true,
                 id: video._id,
+                title: video.title,
+                releaseDate: video.releaseDate,
+                type: video.type,
+                synopsis: video.synopsis,
+                rating: video.rating,
+                coverImage: video.coverImage,
+
                 message: 'Video created!',
             });
         })

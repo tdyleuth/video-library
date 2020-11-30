@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './InsertVideo.css';
 import api from '../../api/api';
 
-const InsertVideo = () => {
+const InsertVideo = ({ setShowModal, videos, setVideos }) => {
     const [title, setTitle] = useState('');
     const [rating, setRating] = useState('');
     const [releaseDate, setReleaseDate] = useState('');
@@ -45,6 +45,30 @@ const InsertVideo = () => {
         try {
             const response = await api.createVideo(payload);
             console.log('Response', response);
+
+            const {
+                id,
+                title,
+                synopsis,
+                rating,
+                coverImage,
+                releaseDate,
+            } = response.data;
+
+            const newVideo = {
+                _id: id,
+                title,
+                synopsis,
+                rating,
+                coverImage,
+                releaseDate,
+            };
+
+            const newVideoList = [...videos, newVideo];
+
+            setVideos(newVideoList);
+
+            setShowModal(false);
             alert('Video Submission Successful!');
 
             const resetInputField = () => {
@@ -65,10 +89,7 @@ const InsertVideo = () => {
     return (
         <div className='insert-video-container'>
             <div className='insert-video-form'>
-                <form
-                    onSubmit={callInsertVideoFunction}
-                    className='insert-video-submit-form'
-                >
+                <form onSubmit={callInsertVideoFunction}>
                     <h2>Insert Video</h2>
                     <label className='title-label'>
                         <b>Title: </b>
@@ -144,7 +165,16 @@ const InsertVideo = () => {
 
                     <div className='button-container'>
                         <button className='form-insert-video-submit-button'>
-                            Submit Video
+                            Submit
+                        </button>
+
+                        <button
+                            onClick={() => {
+                                setShowModal(false);
+                            }}
+                            className='form-insert-video-cancel-button'
+                        >
+                            Cancel
                         </button>
                     </div>
                 </form>

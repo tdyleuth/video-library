@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './NavBar.css';
 import api from '../../api/api';
+import InsertVideo from '../Video/InsertVideo';
 
 import { Link } from 'react-router-dom';
+import Login from '../Login/Login';
 
-const NavBar = ({ setIsAuthed, isAuthed, setVideos }) => {
+const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
+    const [showModal, setShowModal] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
+
     const logOff = (e) => {
         e.preventDefault();
         let logOffConfirm = window.confirm('Are you sure you want to log off?');
 
         if (logOffConfirm === true) {
-            localStorage.setItem('token', null);
+            localStorage.removeItem('token');
+            setShowModal(false);
             setIsAuthed(false);
         } else {
             return null;
@@ -27,6 +33,14 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos }) => {
         }
         fetchData();
     };
+
+    const callShowModalFunction = () => {
+        setShowModal(true);
+    };
+
+    const callShowLoginModalFunction = () => {
+        setShowLoginModal(true);
+    };
     return (
         <nav className='nav-wrap'>
             <div className='nav-links'>
@@ -38,23 +52,46 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos }) => {
                     Video Library
                 </Link>
                 {isAuthed ? (
-                    <Link
-                        onClick={logOff}
-                        to='/user/login'
-                        className='nav-link'
-                    >
+                    <button onClick={logOff} className='log-out-button'>
                         Log Out
-                    </Link>
+                    </button>
                 ) : (
-                    <Link to='/user/login' className='nav-link'>
+                    <button
+                        onClick={callShowLoginModalFunction}
+                        className='login-signup-button'
+                    >
                         Login/Signup
-                    </Link>
+                    </button>
                 )}
 
                 {isAuthed ? (
-                    <Link to='/video/create' className='nav-link'>
+                    <button
+                        className='insert-button'
+                        onClick={callShowModalFunction}
+                    >
                         Insert Video
-                    </Link>
+                    </button>
+                ) : null}
+                {showModal ? (
+                    <div className='modal-container'>
+                        <InsertVideo
+                            showModal={showModal}
+                            setShowModal={setShowModal}
+                            setVideos={setVideos}
+                            videos={videos}
+                        />
+                    </div>
+                ) : null}
+
+                {showLoginModal ? (
+                    <div className='modal-container'>
+                        <Login
+                            setIsAuthed={setIsAuthed}
+                            isAuthed={isAuthed}
+                            showLoginModal={showLoginModal}
+                            setShowLoginModal={setShowLoginModal}
+                        />
+                    </div>
                 ) : null}
             </div>
         </nav>

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './Login.css';
 import api from '../../api/api';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Login = ({ setIsAuthed, isAuthed }) => {
+const Login = ({ setIsAuthed, isAuthed, setShowLoginModal }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -21,14 +21,16 @@ const Login = ({ setIsAuthed, isAuthed }) => {
         console.log('payload!!', payload);
         try {
             const response = await api.loginUser(payload);
+            console.log('login response', response);
+            if (response.data.success === true) {
+                const { token } = response.data;
+                localStorage.setItem('token', token);
 
-            const { token } = response.data;
-            localStorage.setItem('token', token);
-            setIsAuthed(true);
-
-            alert(`${email} is login in!'`);
+                setShowLoginModal(false);
+                setIsAuthed(true);
+                alert(`${email} is logged in!'`);
+            }
         } catch (err) {
-            console.error('Login failed');
             alert('Login Failed! Try again');
         }
     };
@@ -74,10 +76,17 @@ const Login = ({ setIsAuthed, isAuthed }) => {
                     </div>
                     <div className='button-container'>
                         <button className='form-login-button'>Login</button>
+                        <button
+                            onClick={() => {
+                                setShowLoginModal(false);
+                            }}
+                            className='form-cancel-button'
+                        >
+                            Cancel
+                        </button>
                     </div>
                 </form>
             </div>
-            {isAuthed ? <Redirect to='/videos/list' /> : null}
         </div>
     );
 };

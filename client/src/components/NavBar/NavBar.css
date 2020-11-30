@@ -24,3 +24,52 @@
     text-decoration: none;
     color: white;
 }
+
+.login-signup-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    background-color: rgb(64, 66, 65);
+    color: white;
+    border-radius: 8px;
+    padding: 0.5rem;
+    text-transform: uppercase;
+}
+
+.log-out-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    background-color: rgb(187, 47, 29);
+    color: white;
+    border-radius: 8px;
+    padding: 0.5rem;
+    text-transform: uppercase;
+}
+
+.login-signup-button:hover {
+    background-color: rgb(144, 148, 146);
+}
+.insert-button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    background-color: rgb(58, 197, 100);
+    color: white;
+    border-radius: 8px;
+    padding: 0.5rem;
+    text-transform: uppercase;
+}
+
+.modal-container {
+    position: fixed;
+    text-align: left;
+    top: 20%;
+    bottom: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

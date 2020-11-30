@@ -26,6 +26,8 @@ const VideoList = ({ isAuthed, setVideos, videos }) => {
                         isAuthed={isAuthed}
                         key={video._id}
                         video={video}
+                        videos={videos}
+                        setVideos={setVideos}
                     />
                 ))}
             </div>

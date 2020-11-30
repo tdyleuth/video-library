@@ -2,7 +2,7 @@ import React from 'react';
 import './VideoCard.css';
 import api from '../../api/api';
 
-const VideoCard = ({ video, setVideo, isAuthed }) => {
+const VideoCard = ({ video, setVideos, isAuthed, videos }) => {
     //Covert release date into Year-Month-Day format
     const dateObj = new Date(video.releaseDate);
     const month = dateObj.getUTCMonth() + 1;
@@ -18,7 +18,13 @@ const VideoCard = ({ video, setVideo, isAuthed }) => {
             const deleteVideo = async () => {
                 const response = await api.deleteVideoById(videoId);
 
-                console.log('fgf', response);
+                console.log('Delete Video Response', response);
+
+                const updatedVideoList = videos.filter(
+                    (vid) => vid._id !== videoId
+                );
+
+                setVideos(updatedVideoList);
             };
 
             deleteVideo();
