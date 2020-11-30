@@ -1,16 +1,32 @@
 # Video-library
 
-A Full stack MERN website for storing Video Information where user can browse and search for Video by title or register/login to insert a video.
+A Full stack MERN web application for storing Video information content in a library format where user can browse and search for Video by title or register/login to insert a video.
 <img width="1438" alt="ss" src="https://user-images.githubusercontent.com/40449202/99756596-5d1a3800-2aa2-11eb-8194-460709b1b50e.png">
 
-<h2>Status</h2>
-<small>This project is still in progess. Features currently still working on include: Updating Video functionality, Dynamic rendering of Deleted videos, Updating email and password of users, and Filter component for videos.  </small>
-<h3>Estimated Time of Completion<h3>
- <small>One Week<small>
+<h2>Project Status:</h2>
+<small>This project is still in progess. Features currently still working on include: Updating Video functionality, dynamic rendering of deleted videos, updating email and password of users, and filter component for videos. </small>
 
-<h2>Installation </h2>
+<h3>Estimated Time To Complete:<h3>
+ <small>1-2 Weeks<small>
+
+<h2>Installation:</h2>
+
+Install Mongo DB:
+
+```bash
+$ brew tap mongodb/brew
+$ brew install mongodb-community
+$ brew services start mongodb-community
+$ mkdir -p /data/db
+$ brew services start mongodb
+$ mongo > use videos
+```
 
 Create .env file in server directory to include and insert JWT_SECRET=SECRET
+
+```bash
+cd server touch .env
+```
 
 Use the package manager [npm](https://www.npmjs.com/) to install Video-Library.
 Setup the project and install the packages by running:
@@ -19,31 +35,35 @@ Setup the project and install the packages by running:
 npm run install
 ```
 
-Run server on server directory with command
+Run Back-End on server directory with command:
 
 ```bash
+cd server
 npm run start:dev
 ```
 
-Run client on client directory with command
+Run Front-End on client directory with command:
 
 ```bash
+cd client
 npm run start
 ```
 
 <h2> Built with  </h2>
 <ul>
-  <li>FrontEnd: <b> React.JS, HTML/CSS </b></li>
-  <li>Backend:  <b> Node.JS, Express.JS </b> </li>
+  <li>Front-End: <b> React.JS, HTML/CSS </b></li>
+  <li>Back-End:  <b> Node.JS, Express.JS </b> </li>
   <li>Database: <b> MongoDB, Mongoose </b> </li>
 </ul>
 
 <h2> Features </h2>
 <ul>
-  <li> Login/ Sign Up / Log Out the user. </li>
+  <li> Login / Sign Up / Log Out the user. </li>
   <li> Add a new video to the list.</li>
     <li> Delete video from list</li>
+  <li> Update video from list</li>
        <li> Search video by title </li>
+  <li> Filter Video by type, releaseDate, rating </li>
 </ul>
 
 <h2> API </h2>
