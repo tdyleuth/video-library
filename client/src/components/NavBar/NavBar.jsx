@@ -34,11 +34,17 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
         fetchData();
     };
 
-    const callShowModalFunction = () => {
+    const callShowInsertVideoModalFunction = () => {
+        let divOverlay = document.createElement('div');
+        divOverlay.id = 'overlay';
+        document.body.appendChild(divOverlay);
         setShowModal(true);
     };
 
     const callShowLoginModalFunction = () => {
+        let divOverlay = document.createElement('div');
+        divOverlay.id = 'overlay';
+        document.body.appendChild(divOverlay);
         setShowLoginModal(true);
     };
     return (
@@ -67,33 +73,33 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
                 {isAuthed ? (
                     <button
                         className='insert-button'
-                        onClick={callShowModalFunction}
+                        onClick={callShowInsertVideoModalFunction}
                     >
                         Insert Video
                     </button>
                 ) : null}
-                {showModal ? (
-                    <div className='modal-container'>
-                        <InsertVideo
-                            showModal={showModal}
-                            setShowModal={setShowModal}
-                            setVideos={setVideos}
-                            videos={videos}
-                        />
-                    </div>
-                ) : null}
-
-                {showLoginModal ? (
-                    <div className='modal-container'>
-                        <Login
-                            setIsAuthed={setIsAuthed}
-                            isAuthed={isAuthed}
-                            showLoginModal={showLoginModal}
-                            setShowLoginModal={setShowLoginModal}
-                        />
-                    </div>
-                ) : null}
             </div>
+            {showModal ? (
+                <div className='modal-container'>
+                    <InsertVideo
+                        showModal={showModal}
+                        setShowModal={setShowModal}
+                        setVideos={setVideos}
+                        videos={videos}
+                    />
+                </div>
+            ) : null}
+
+            {showLoginModal ? (
+                <div className='modal-container'>
+                    <Login
+                        setIsAuthed={setIsAuthed}
+                        isAuthed={isAuthed}
+                        showLoginModal={showLoginModal}
+                        setShowLoginModal={setShowLoginModal}
+                    />
+                </div>
+            ) : null}
         </nav>
     );
 };

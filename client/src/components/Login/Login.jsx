@@ -28,6 +28,10 @@ const Login = ({ setIsAuthed, isAuthed, setShowLoginModal }) => {
 
                 setShowLoginModal(false);
                 setIsAuthed(true);
+
+                //Removes Modal background overlay
+                let divOverlay = document.getElementById('overlay');
+                divOverlay.remove();
                 alert(`${email} is logged in!'`);
             }
         } catch (err) {
@@ -78,6 +82,11 @@ const Login = ({ setIsAuthed, isAuthed, setShowLoginModal }) => {
                         <button className='form-login-button'>Login</button>
                         <button
                             onClick={() => {
+                                //Removes Modal background overlay
+                                let divOverlay = document.getElementById(
+                                    'overlay'
+                                );
+                                divOverlay.remove();
                                 setShowLoginModal(false);
                             }}
                             className='form-cancel-button'

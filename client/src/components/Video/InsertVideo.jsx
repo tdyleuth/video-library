@@ -41,7 +41,6 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
             coverImage,
             type,
         };
-
         try {
             const response = await api.createVideo(payload);
             console.log('Response', response);
@@ -53,6 +52,7 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
                 rating,
                 coverImage,
                 releaseDate,
+                type,
             } = response.data;
 
             const newVideo = {
@@ -62,6 +62,7 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
                 rating,
                 coverImage,
                 releaseDate,
+                type,
             };
 
             const newVideoList = [...videos, newVideo];
@@ -69,6 +70,8 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
             setVideos(newVideoList);
 
             setShowModal(false);
+            let divOverlay = document.getElementById('overlay');
+            divOverlay.remove();
             alert('Video Submission Successful!');
 
             const resetInputField = () => {
@@ -170,6 +173,11 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
 
                         <button
                             onClick={() => {
+                                let divOverlay = document.getElementById(
+                                    'overlay'
+                                );
+                                divOverlay.remove();
+
                                 setShowModal(false);
                             }}
                             className='form-insert-video-cancel-button'

@@ -66,10 +66,19 @@
 
 .modal-container {
     position: fixed;
-    text-align: left;
-    top: 20%;
-    bottom: 20%;
+    top: 5%;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
+}
+
+#overlay {
+    position: fixed; /* Positioning and size */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 128, 128, 0.5); /* color */
+    z-index: 5;
 }
