@@ -73,9 +73,7 @@ const Login = ({ setIsAuthed, isAuthed, setShowLoginModal }) => {
                     <div>
                         <p className='signup-link'>
                             Not registered?&nbsp;
-                            <Link to='/user/signup' className='nav-link'>
-                                Signup
-                            </Link>{' '}
+                            <button>Sign Up</button>
                         </p>
                     </div>
                     <div className='button-container'>

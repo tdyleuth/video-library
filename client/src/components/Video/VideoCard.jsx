@@ -25,11 +25,11 @@ const VideoCard = ({ video, setVideos, isAuthed, videos }) => {
                 );
 
                 setVideos(updatedVideoList);
+
+                alert('Successfully Delete');
             };
 
             deleteVideo();
-
-            alert('Successfully Delete');
         } catch (err) {
             console.error(err);
         }
