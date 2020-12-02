@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import './Login.css';
 import api from '../../api/api';
-import { Link } from 'react-router-dom';
 
-const Login = ({ setIsAuthed, isAuthed, setShowLoginModal }) => {
+const Login = ({
+    setIsAuthed,
+    isAuthed,
+    setShowLoginModal,
+    setShowSignupModal,
+}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -13,6 +17,12 @@ const Login = ({ setIsAuthed, isAuthed, setShowLoginModal }) => {
 
     const handlePasswordInputChanges = (e) => {
         setPassword(e.target.value);
+    };
+
+    const callSignupModalFunction = (e) => {
+        e.preventDefault();
+        setShowLoginModal(false);
+        setShowSignupModal(true);
     };
 
     const callLoginFunction = async (e) => {
@@ -29,9 +39,6 @@ const Login = ({ setIsAuthed, isAuthed, setShowLoginModal }) => {
                 setShowLoginModal(false);
                 setIsAuthed(true);
 
-                //Removes Modal background overlay
-                let divOverlay = document.getElementById('overlay');
-                divOverlay.remove();
                 alert(`${email} is logged in!'`);
             }
         } catch (err) {
@@ -46,7 +53,18 @@ const Login = ({ setIsAuthed, isAuthed, setShowLoginModal }) => {
                     onSubmit={callLoginFunction}
                     className='login-submit-form'
                 >
-                    <h2>Login</h2>
+                    <div className='modal-header'>
+                        <h2>Sign In</h2>
+                        <button
+                            type='button'
+                            onClick={() => {
+                                setShowLoginModal(false);
+                            }}
+                            className='close-button'
+                        >
+                            X
+                        </button>
+                    </div>
                     <label className='email-label'>
                         <b>Email: </b>
                     </label>
@@ -70,27 +88,19 @@ const Login = ({ setIsAuthed, isAuthed, setShowLoginModal }) => {
                         required
                     ></input>
 
+                    <div className='button-container'>
+                        <button className='form-login-button'>Submit</button>
+                    </div>
                     <div>
                         <p className='signup-link'>
                             Not registered?&nbsp;
-                            <button>Sign Up</button>
+                            <a
+                                href='user/sigup'
+                                onClick={callSignupModalFunction}
+                            >
+                                Create Account
+                            </a>
                         </p>
-                    </div>
-                    <div className='button-container'>
-                        <button className='form-login-button'>Login</button>
-                        <button
-                            onClick={() => {
-                                //Removes Modal background overlay
-                                let divOverlay = document.getElementById(
-                                    'overlay'
-                                );
-                                divOverlay.remove();
-                                setShowLoginModal(false);
-                            }}
-                            className='form-cancel-button'
-                        >
-                            Cancel
-                        </button>
                     </div>
                 </form>
             </div>

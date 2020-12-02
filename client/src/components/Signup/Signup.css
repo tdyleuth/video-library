@@ -1,28 +1,43 @@
 .signup-container {
     display: flex;
-    margin: 4rem 0 0 0;
+    margin: 0 0 60% 0;
     justify-content: center;
     padding: 2em 4em 2em 4em;
 }
 
-.signup-submit-form > h2 {
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.modal-header > h2 {
     color: white;
     margin-bottom: 2rem;
-    font-size: 35px;
+    font-size: 25px;
     text-align: center;
+}
+
+.close-button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .signup-form {
     display: flex;
     align-items: center;
+    flex-basis: 500px;
     justify-content: center;
     border: 3px solid #f1f1f1;
     width: 100%;
-    padding: 2rem;
-    max-width: 50%;
+    padding: 1rem 1.5rem 2rem 1.5rem;
     background-color: rgb(204, 75, 58);
     border-radius: 10px;
-    box-shadow: 0px 0px 3px 0 #000;
+    box-shadow: 0px 0px 5px 1px #000;
 }
 
 .form-signup-button {
@@ -30,12 +45,13 @@
     align-items: center;
     justify-content: center;
     color: white;
-    margin: 1em 3em 1em 3em;
+    margin: 1em 0em 1em 0em;
     padding: 1rem;
     height: 60px;
-    background-color: rgb(95, 144, 235);
+    background-color: rgb(57, 118, 230);
     font-size: 25px;
     border-radius: 10px;
+    width: 100%;
 }
 .signup-submit-form > input[type='text'],
 input[type='password'] {
@@ -48,12 +64,12 @@ input[type='password'] {
     font-size: 20px;
 }
 .email-label {
-    font-size: 24px;
+    font-size: 18px;
     color: white;
 }
 
 .password-label {
-    font-size: 24px;
+    font-size: 18px;
     color: white;
 }
 
@@ -62,14 +78,16 @@ input[type='password'] {
     justify-content: center;
 }
 
-.login-link {
+.signin-link {
     display: flex;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     justify-content: center;
     align-items: center;
 }
 
-.login-link a {
-    color: rgb(69, 35, 221);
+.signin-link a {
+    color: rgb(57, 118, 230);
+    text-decoration: none;
+    font-weight: bold;
 }

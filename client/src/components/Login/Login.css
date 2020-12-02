@@ -1,25 +1,36 @@
 .login-container {
     display: flex;
-    margin: 2rem 0 0 0;
+    margin: 0 0 60% 0;
     width: 100%;
     justify-content: center;
     padding: 2em 4em 2em 4em;
 }
 
-.login-submit-form > h2 {
+.modal-header > h2 {
     color: white;
     margin-bottom: 2rem;
-    font-size: 35px;
+    font-size: 25px;
     text-align: center;
+}
+
+.close-button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .login-form {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-basis: 500px;
     border: 3px solid #f1f1f1;
     width: 100%;
-    padding: 2rem;
+    padding: 1rem 1.5rem 2rem 1.5rem;
     background-color: rgb(33, 98, 163);
     border-radius: 10px;
     box-shadow: 0px 0px 3px 0 #000;
@@ -30,12 +41,13 @@
     align-items: center;
     justify-content: center;
     color: white;
-    margin: 1em 3em 1em 3em;
+    margin: 1em 0em 1em 0em;
     padding: 1rem;
     height: 60px;
-    background-color: rgb(79, 209, 111);
+    background-color: rgb(79, 211, 112);
     font-size: 25px;
     border-radius: 10px;
+    width: 100%;
 }
 
 .form-cancel-button {
@@ -62,12 +74,12 @@ input[type='email'] {
     font-size: 20px;
 }
 .email-label {
-    font-size: 24px;
+    font-size: 18px;
     color: white;
 }
 
 .password-label {
-    font-size: 24px;
+    font-size: 18px;
     color: white;
 }
 
@@ -79,11 +91,13 @@ input[type='email'] {
 .signup-link {
     display: flex;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     justify-content: center;
     align-items: center;
 }
 
 .signup-link a {
-    color: rgb(182, 2, 2);
+    color: rgb(199, 19, 19);
+    text-decoration: none;
+    font-weight: bold;
 }

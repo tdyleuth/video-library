@@ -5,10 +5,12 @@ import InsertVideo from '../Video/InsertVideo';
 
 import { Link } from 'react-router-dom';
 import Login from '../Login/Login';
+import Signup from '../Signup/Signup';
 
 const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
     const [showModal, setShowModal] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
+    const [showSignupModal, setShowSignupModal] = useState(false);
 
     const logOff = (e) => {
         e.preventDefault();
@@ -47,6 +49,10 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
         document.body.appendChild(divOverlay);
         setShowLoginModal(true);
     };
+
+    const callShowSignupModalFunction = () => {
+        setShowSignupModal(true);
+    };
     return (
         <nav className='nav-wrap'>
             <div className='nav-links'>
@@ -62,12 +68,21 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
                         Log Out
                     </button>
                 ) : (
-                    <button
-                        onClick={callShowLoginModalFunction}
-                        className='login-signup-button'
-                    >
-                        Login/Signup
-                    </button>
+                    <div className='button-container'>
+                        <button
+                            type='button'
+                            onClick={callShowLoginModalFunction}
+                            className='signin-button'
+                        >
+                            Sign In
+                        </button>
+                        <button
+                            onClick={callShowSignupModalFunction}
+                            className='signup-button'
+                        >
+                            REGISTER
+                        </button>
+                    </div>
                 )}
 
                 {isAuthed ? (
@@ -97,6 +112,18 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
                         isAuthed={isAuthed}
                         showLoginModal={showLoginModal}
                         setShowLoginModal={setShowLoginModal}
+                        setShowSignupModal={setShowSignupModal}
+                    />
+                </div>
+            ) : null}
+
+            {showSignupModal ? (
+                <div className='modal-container'>
+                    <Signup
+                        showSignupModal={showSignupModal}
+                        setShowSignupModal={setShowSignupModal}
+                        setShowLoginModal={setShowLoginModal}
+                        setIsAuthed={setIsAuthed}
                     />
                 </div>
             ) : null}

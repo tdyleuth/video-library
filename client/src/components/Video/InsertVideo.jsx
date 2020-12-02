@@ -70,8 +70,7 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
             setVideos(newVideoList);
 
             setShowModal(false);
-            let divOverlay = document.getElementById('overlay');
-            divOverlay.remove();
+
             alert('Video Submission Successful!');
 
             const resetInputField = () => {
@@ -93,7 +92,18 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
         <div className='insert-video-container'>
             <div className='insert-video-form'>
                 <form onSubmit={callInsertVideoFunction}>
-                    <h2>Insert Video</h2>
+                    <div className='modal-header'>
+                        <h2>Insert Video</h2>
+                        <button
+                            type='button'
+                            onClick={() => {
+                                setShowModal(false);
+                            }}
+                            className='close-button'
+                        >
+                            X
+                        </button>
+                    </div>
                     <label className='title-label'>
                         <b>Title: </b>
                     </label>
@@ -173,11 +183,6 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
 
                         <button
                             onClick={() => {
-                                let divOverlay = document.getElementById(
-                                    'overlay'
-                                );
-                                divOverlay.remove();
-
                                 setShowModal(false);
                             }}
                             className='form-insert-video-cancel-button'

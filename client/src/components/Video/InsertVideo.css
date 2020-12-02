@@ -1,16 +1,26 @@
 .insert-video-container {
     display: flex;
-    margin: 2rem 4rem 2rem 4rem;
+    margin: 2rem 4rem 12rem 4rem;
     width: 50%;
     justify-content: center;
     padding: 2em 4em 2em 4em;
 }
 
-.insert-video-form > form > h2 {
+.modal-header > h2 {
     color: white;
     margin-bottom: 2rem;
-    font-size: 35px;
+    font-size: 25px;
     text-align: center;
+}
+
+.close-button {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .insert-video-form {
@@ -89,7 +99,7 @@ input[type='url'] {
 .rating-label,
 .releaseDate-label,
 .coverImage-label {
-    font-size: 24px;
+    font-size: 18px;
     color: white;
 }
 
