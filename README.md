@@ -1,7 +1,7 @@
 # Video-library
 
 A Full stack MERN web application for storing Video information content in a library format where user can browse and search for Video by title or register/login to insert a video.
-<img width="1438" alt="ss" src="https://user-images.githubusercontent.com/40449202/100563674-d1f42b80-3273-11eb-8ed4-f318d63ef113.png">
+<img width="1438" alt="ss" src="https://user-images.githubusercontent.com/40449202/100956134-aa4bd000-34cc-11eb-9d91-9df1cd0f6c2f.png">
 
 <h2>Project Status:</h2>
 <small>This project is still in progess. Features currently still working on include: Updating Video functionality, dynamic rendering of deleted videos, updating email and password of users, and filter component for videos. </small>
