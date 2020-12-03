@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import './NavBar.css';
-import api from '../../api/api';
+
 import InsertVideo from '../Video/InsertVideo';
 
-import { Link } from 'react-router-dom';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
+import Logo from '../../Images/video-library-logo.png';
 
 const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
     const [showModal, setShowModal] = useState(false);
@@ -23,17 +23,6 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
         } else {
             return null;
         }
-    };
-
-    const fetchVideoList = () => {
-        async function fetchData() {
-            const response = await api.getAllVideos();
-
-            setVideos(response.data.data);
-
-            return response;
-        }
-        fetchData();
     };
 
     const callShowInsertVideoModalFunction = () => {
@@ -56,17 +45,26 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
     return (
         <nav className='nav-wrap'>
             <div className='nav-links'>
-                <Link
-                    onClick={fetchVideoList}
-                    to='/videos/list'
-                    className='nav-link'
-                >
-                    Video Library
-                </Link>
+                <a href='#home' className='navbar-brand'>
+                    <img
+                        alt='video library'
+                        src={Logo}
+                        width='125
+                        '
+                    />
+                </a>
                 {isAuthed ? (
-                    <button onClick={logOff} className='log-out-button'>
-                        Log Out
-                    </button>
+                    <div className='button-container'>
+                        <button onClick={logOff} className='signout-button'>
+                            Sign Out
+                        </button>
+                        <button
+                            className='insert-button'
+                            onClick={callShowInsertVideoModalFunction}
+                        >
+                            Insert Video
+                        </button>
+                    </div>
                 ) : (
                     <div className='button-container'>
                         <button
@@ -84,15 +82,6 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
                         </button>
                     </div>
                 )}
-
-                {isAuthed ? (
-                    <button
-                        className='insert-button'
-                        onClick={callShowInsertVideoModalFunction}
-                    >
-                        Insert Video
-                    </button>
-                ) : null}
             </div>
             {showModal ? (
                 <div className='modal-container'>

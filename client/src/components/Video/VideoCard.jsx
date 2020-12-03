@@ -24,9 +24,8 @@ const VideoCard = ({ video, setVideos, isAuthed, videos }) => {
                     (vid) => vid._id !== videoId
                 );
 
-                setVideos(updatedVideoList);
-
                 alert('Successfully Delete');
+                setVideos(updatedVideoList);
             };
 
             deleteVideo();
