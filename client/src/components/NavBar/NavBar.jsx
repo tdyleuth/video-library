@@ -11,6 +11,7 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
     const [showModal, setShowModal] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
+    const [showSidebar, setShowSidebar] = useState(false);
 
     const logOff = (e) => {
         e.preventDefault();
@@ -19,6 +20,7 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
         if (logOffConfirm === true) {
             localStorage.removeItem('token');
             setShowModal(false);
+            setShowSidebar(false);
             setIsAuthed(false);
         } else {
             return null;
@@ -29,6 +31,7 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
         let divOverlay = document.createElement('div');
         divOverlay.id = 'overlay';
         document.body.appendChild(divOverlay);
+        setShowSidebar(false);
         setShowModal(true);
     };
 
@@ -36,16 +39,26 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
         let divOverlay = document.createElement('div');
         divOverlay.id = 'overlay';
         document.body.appendChild(divOverlay);
+        setShowSidebar(false);
         setShowLoginModal(true);
     };
 
     const callShowSignupModalFunction = () => {
+        setShowSidebar(false);
         setShowSignupModal(true);
+    };
+
+    const navSlide = () => {
+        if (showSidebar === false) {
+            setShowSidebar(true);
+        } else {
+            setShowSidebar(false);
+        }
     };
     return (
         <nav className='nav-wrap'>
-            <div className='nav-links'>
-                <a href='#home' className='navbar-brand'>
+            <div id='navbar-brand'>
+                <a href='/videos/list'>
                     <img
                         alt='video library'
                         src={Logo}
@@ -53,6 +66,18 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
                         '
                     />
                 </a>
+            </div>
+            <div className='mobile-container'>
+                <div
+                    onClick={navSlide}
+                    className={showSidebar ? 'burger toggle' : 'burger'}
+                >
+                    <div className='line1'></div>
+                    <div className='line2'></div>
+                    <div className='line3'></div>
+                </div>
+            </div>
+            <div className={showSidebar ? 'nav-links nav-active' : 'nav-links'}>
                 {isAuthed ? (
                     <div className='button-container'>
                         <button onClick={logOff} className='signout-button'>
@@ -83,6 +108,7 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
                     </div>
                 )}
             </div>
+
             {showModal ? (
                 <div className='modal-container'>
                     <InsertVideo

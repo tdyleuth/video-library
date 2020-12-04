@@ -5,8 +5,56 @@
     box-sizing: border-box;
     margin: 3rem 3rem 4rem 3rem;
     list-style: none;
+    -webkit-animation: fadein 0.7s linear forwards;
+    animation: fadein 0.7s linear forwards;
 }
 
+.videoCard-fadeout {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 20%;
+    box-sizing: border-box;
+    margin: 3rem 3rem 4rem 3rem;
+    list-style: none;
+    -webkit-animation: fadeout 0.7s linear forwards;
+    animation: fadeout 0.7s linear forwards;
+}
+
+@-webkit-keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 .videoCard > h2 {
     text-align: center;
 }

@@ -28,10 +28,8 @@ const Login = ({
     const callLoginFunction = async (e) => {
         e.preventDefault();
         const payload = { email, password };
-        console.log('payload!!', payload);
         try {
             const response = await api.loginUser(payload);
-            console.log('login response', response);
             if (response.data.success === true) {
                 const { token } = response.data;
                 localStorage.setItem('token', token);

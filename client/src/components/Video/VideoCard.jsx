@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './VideoCard.css';
 import api from '../../api/api';
 
 const VideoCard = ({ video, setVideos, isAuthed, videos }) => {
+    const [isFadingOut, setIsFadingOut] = useState(false);
     //Covert release date into Year-Month-Day format
     const dateObj = new Date(video.releaseDate);
     const month = dateObj.getUTCMonth() + 1;
@@ -25,6 +26,7 @@ const VideoCard = ({ video, setVideos, isAuthed, videos }) => {
                 );
 
                 alert('Successfully Delete');
+                setIsFadingOut(true);
                 setVideos(updatedVideoList);
             };
 
@@ -34,7 +36,7 @@ const VideoCard = ({ video, setVideos, isAuthed, videos }) => {
         }
     };
     return (
-        <div className='videoCard'>
+        <div className={isFadingOut ? 'videoCard-fadeout' : 'videoCard'}>
             <img src={video.coverImage} className='center' alt='cover' />
             <h2 className='videoCard-title'>{video.title}</h2>
             <p className='videoCard-release-date'>Release Date: {newdate}</p>
