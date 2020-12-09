@@ -7,6 +7,7 @@
     list-style: none;
     -webkit-animation: fadein 0.7s linear forwards;
     animation: fadein 0.7s linear forwards;
+    cursor: pointer;
 }
 
 .videoCard-fadeout {
@@ -90,9 +91,9 @@
     font-weight: bold;
 }
 
-.videoCard:hover > .videoCard-synopsis {
+/* .videoCard:hover > .videoCard-synopsis {
     display: inline;
-}
+} */
 .videoCard > h2 {
     padding-top: 10px;
 }

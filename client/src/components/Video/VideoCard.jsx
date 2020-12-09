@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './VideoCard.css';
 import api from '../../api/api';
 
-const VideoCard = ({ video, setVideos, isAuthed, videos }) => {
+const VideoCard = ({ video, setVideos, isAuthed, videos, openVideoPopup }) => {
     const [isFadingOut, setIsFadingOut] = useState(false);
     //Covert release date into Year-Month-Day format
     const dateObj = new Date(video.releaseDate);
@@ -36,7 +36,19 @@ const VideoCard = ({ video, setVideos, isAuthed, videos }) => {
         }
     };
     return (
-        <div className={isFadingOut ? 'videoCard-fadeout' : 'videoCard'}>
+        <div
+            className={isFadingOut ? 'videoCard-fadeout' : 'videoCard'}
+            onClick={() =>
+                openVideoPopup(
+                    video._id,
+                    video.title,
+                    video.rating,
+                    video.releaseDate,
+                    video.synopsis,
+                    video.coverImage
+                )
+            }
+        >
             <img src={video.coverImage} className='center' alt='cover' />
             <h2 className='videoCard-title'>{video.title}</h2>
             <p className='videoCard-release-date'>Release Date: {newdate}</p>
