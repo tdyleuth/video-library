@@ -3,11 +3,30 @@
     flex-direction: column;
     flex-basis: 20%;
     box-sizing: border-box;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 1);
+    background: -webkit-linear-gradient(
+        bottom right,
+        rgba(0, 0, 0, 1),
+        rgba(58, 55, 55, 1)
+    );
+    background: -moz-linear-gradient(
+        bottom right,
+        rgba(0, 0, 0, 1),
+        rgba(58, 55, 55, 1)
+    );
+    background: linear-gradient(
+        to top left,
+        rgba(0, 0, 0, 1),
+        rgba(58, 55, 55, 1)
+    );
     margin: 3rem 3rem 4rem 3rem;
     list-style: none;
     -webkit-animation: fadein 0.7s linear forwards;
     animation: fadein 0.7s linear forwards;
     cursor: pointer;
+    border-radius: 5px;
+    color: white;
 }
 
 .videoCard-fadeout {
@@ -71,6 +90,7 @@
 .videoCard-title {
     font-size: 25px;
     margin: 1rem 0 0 0;
+    color: rgb(176, 39, 39);
 }
 
 .videoCard-release-date {
@@ -86,14 +106,15 @@
     padding: 1rem 2rem 0 2rem;
 }
 .videoCard-stats {
-    padding: 1rem 0 0 0;
+    padding: 1rem 0 1rem 0;
     text-align: center;
-    font-weight: bold;
+    font-size: 15px;
 }
 
-/* .videoCard:hover > .videoCard-synopsis {
-    display: inline;
-} */
+.fa.fa-star {
+    color: yellow;
+}
+
 .videoCard > h2 {
     padding-top: 10px;
 }

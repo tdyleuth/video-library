@@ -13,7 +13,9 @@ const VideoPopup = ({ selectedVideo, closeVideoPopup }) => {
             <div className='content'>
                 <h2>
                     {selectedVideo.title} <span>({newdate})</span>
-                    <p className='rating'>Rating: {selectedVideo.rating}</p>
+                    <p className='rating'>
+                        <i className='fa fa-star'></i> {selectedVideo.rating}
+                    </p>
                 </h2>
 
                 <div className='synopsis'>

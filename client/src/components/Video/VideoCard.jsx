@@ -56,7 +56,8 @@ const VideoCard = ({ video, setVideos, isAuthed, videos, openVideoPopup }) => {
             <p className='videoCard-synopsis'> {video.synopsis}</p>
             <p className='videoCard-stats'>
                 Type: {video.type}
-                {video.release_date} | Rating: {video.rating}
+                {video.release_date} | <i className='fa fa-star'></i>{' '}
+                {video.rating}
             </p>
             {isAuthed ? (
                 <div className='videoCard-ctrls'>

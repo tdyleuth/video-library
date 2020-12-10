@@ -10,6 +10,7 @@ const Login = ({
 }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordToggle, setPasswordToggle] = useState(false);
 
     const handleEmailInputChanges = (e) => {
         setEmail(e.target.value);
@@ -36,11 +37,20 @@ const Login = ({
 
                 setShowLoginModal(false);
                 setIsAuthed(true);
+                setPasswordToggle(false);
 
                 alert(`${email} is logged in!'`);
             }
         } catch (err) {
             alert('Login Failed! Try again');
+        }
+    };
+
+    const handlePasswordToggle = () => {
+        if (passwordToggle === false) {
+            setPasswordToggle(true);
+        } else {
+            setPasswordToggle(false);
         }
     };
 
@@ -57,6 +67,7 @@ const Login = ({
                             type='button'
                             onClick={() => {
                                 setShowLoginModal(false);
+                                setPasswordToggle(false);
                             }}
                             className='close-button'
                         >
@@ -73,19 +84,25 @@ const Login = ({
                         placeholder='Enter Email'
                         required
                     ></input>
-
                     <label className='password-label'>
                         <b>Password: </b>
                     </label>
-                    <input
-                        onChange={handlePasswordInputChanges}
-                        value={password}
-                        minLength='6'
-                        type='password'
-                        placeholder='Enter Password'
-                        required
-                    ></input>
-
+                    <div className='pass-wrapper'>
+                        <input
+                            onChange={handlePasswordInputChanges}
+                            value={password}
+                            minLength='6'
+                            type={passwordToggle ? 'text' : 'password'}
+                            placeholder='Enter Password'
+                            required
+                        />
+                        <i
+                            className={
+                                passwordToggle ? 'fa fa-eye-slash' : 'fa fa-eye'
+                            }
+                            onClick={handlePasswordToggle}
+                        ></i>
+                    </div>
                     <div className='button-container'>
                         <button className='form-login-button'>Submit</button>
                     </div>

@@ -53,8 +53,10 @@
     border-radius: 10px;
     width: 100%;
 }
-.signup-submit-form > input[type='text'],
-input[type='password'] {
+
+input[type='text'],
+input[type='password'],
+input[type='email'] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -62,6 +64,28 @@ input[type='password'] {
     border: 1px solid #ccc;
     box-sizing: border-box;
     font-size: 20px;
+}
+
+.pass-wrapper {
+    position: relative;
+    display: flex;
+}
+.fa.fa-eye {
+    color: rgb(48, 47, 47);
+    font-size: 25px;
+    z-index: 9999;
+    position: absolute;
+    top: 30%;
+    right: 10px;
+}
+
+.fa.fa-eye-slash {
+    color: rgb(48, 47, 47);
+    font-size: 25px;
+    z-index: 9999;
+    position: absolute;
+    top: 30%;
+    right: 10px;
 }
 .email-label {
     font-size: 18px;

@@ -44,17 +44,22 @@ const SearchBar = ({ setVideos, videos }) => {
     return (
         <div className='searchbar-container'>
             <form className='search'>
-                <input
-                    className='search-box'
-                    value={searchValue}
-                    onChange={handleSearchInputChanges}
-                    type='text'
-                />
-                <input
-                    onClick={callSearchFunction}
-                    type='submit'
-                    value='SEARCH'
-                />
+                <div className='search-wrapper'>
+                    <input
+                        className='search-box'
+                        value={searchValue}
+                        onChange={handleSearchInputChanges}
+                        type='text'
+                        placeholder='Search Video...'
+                    />
+                    <button
+                        id='search-button'
+                        onClick={callSearchFunction}
+                        type='submit'
+                    >
+                        <i className='fa fa-search'></i>
+                    </button>
+                </div>
             </form>
         </div>
     );

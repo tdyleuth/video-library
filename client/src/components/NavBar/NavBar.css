@@ -1,7 +1,22 @@
 .nav-wrap {
     display: flex;
     position: fixed;
-    background-color: #000000;
+    background: rgba(0, 0, 0, 1);
+    background: -webkit-linear-gradient(
+        bottom right,
+        rgba(0, 0, 0, 1),
+        rgba(58, 55, 55, 1)
+    );
+    background: -moz-linear-gradient(
+        bottom right,
+        rgba(0, 0, 0, 1),
+        rgba(58, 55, 55, 1)
+    );
+    background: linear-gradient(
+        to top left,
+        rgba(0, 0, 0, 1),
+        rgba(58, 55, 55, 1)
+    );
     align-items: center;
     font: 12px 'opensans-bold', sans-serif;
     width: 100%;

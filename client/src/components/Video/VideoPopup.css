@@ -52,6 +52,9 @@
     font-size: 25px;
     margin-top: 1rem;
 }
+.fa.fa-star {
+    color: yellow;
+}
 
 .popup .content .synopsis {
     display: flex;

@@ -9,19 +9,35 @@
     justify-content: center;
     width: 100%;
 }
-input[type='submit'] {
-    padding: 5px;
-    color: white;
-    background-color: transparent;
-    border: 3px solid black;
-    width: 80px;
-    margin-left: 5px;
-    cursor: pointer;
-    border-radius: 7px;
-    font-size: 15px;
-    background-color: #3d4043;
+
+.search-wrapper {
+    position: relative;
+    display: flex;
 }
-input[type='submit']:hover {
+
+.fa.fa-search {
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    z-index: 9999;
+    position: absolute;
+    top: 30%;
+    right: 12px;
+}
+
+#search-button {
+    padding: 10px;
+    position: relative;
+    width: 60px;
+    height: 56px;
+    color: white;
+    margin: 6px 0 0 0px;
+    cursor: pointer;
+    border-left: none;
+    font-size: 15px;
+    background-color: #3a3d41;
+    border-radius: 2px;
+}
+button:hover {
     background-color: #78797b;
     color: rgb(255, 255, 255);
 }
@@ -37,9 +53,9 @@ input[type='submit']:hover {
     padding: 10px;
     background-color: #fff;
     border: 3px solid black;
-    border-radius: 7px;
     color: #000;
     font-size: 15px;
     font-weight: 300;
     transition: 0.4s ease-out;
+    border-radius: 2px;
 }

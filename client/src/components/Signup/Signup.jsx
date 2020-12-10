@@ -5,6 +5,7 @@ import api from '../../api/api';
 const Signup = ({ setShowSignupModal, setShowLoginModal, setIsAuthed }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordToggle, setPasswordToggle] = useState(false);
 
     const handleEmailInputChanges = (e) => {
         setEmail(e.target.value);
@@ -40,6 +41,14 @@ const Signup = ({ setShowSignupModal, setShowLoginModal, setIsAuthed }) => {
         setShowLoginModal(true);
     };
 
+    const handlePasswordToggle = () => {
+        if (passwordToggle === false) {
+            setPasswordToggle(true);
+        } else {
+            setPasswordToggle(false);
+        }
+    };
+
     return (
         <div className='signup-container'>
             <div className='signup-form'>
@@ -72,13 +81,20 @@ const Signup = ({ setShowSignupModal, setShowLoginModal, setIsAuthed }) => {
                     <label className='password-label'>
                         <b>Create Password: </b>
                     </label>
-                    <input
-                        onChange={handlePasswordInputChanges}
-                        type='password'
-                        placeholder='Enter Password'
-                        required
-                    ></input>
-
+                    <div className='pass-wrapper'>
+                        <input
+                            onChange={handlePasswordInputChanges}
+                            type={passwordToggle ? 'text' : 'password'}
+                            placeholder='Enter Password'
+                            required
+                        ></input>
+                        <i
+                            className={
+                                passwordToggle ? 'fa fa-eye-slash' : 'fa fa-eye'
+                            }
+                            onClick={handlePasswordToggle}
+                        ></i>
+                    </div>
                     <div className='button-container'>
                         <button className='form-signup-button'>
                             Create Account
