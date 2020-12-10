@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import api from '../../api/api';
 import './VideoList.css';
 import VideoCard from './VideoCard';
-import SearchBar from '../SearchBar/SearchBar';
 import VideoPopup from '../Video/VideoPopup';
 
 const VideoList = ({ isAuthed, setVideos, videos }) => {
@@ -44,7 +43,6 @@ const VideoList = ({ isAuthed, setVideos, videos }) => {
 
     return (
         <>
-            <SearchBar videos={videos} setVideos={setVideos} />
             <div className='video-results'>
                 {videos.map((video) => (
                     <VideoCard

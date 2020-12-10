@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import api from '../../api/api';
 
 import './SearchBar.css';
 
@@ -13,24 +14,35 @@ const SearchBar = ({ setVideos, videos }) => {
     const callSearchFunction = (e) => {
         e.preventDefault();
 
-        const SearchResults = videos.filter((data) => {
-            if (searchValue === null) {
-                return data;
-            } else {
-                return data.title
-                    .toLowerCase()
-                    .split(' ')
-                    .join('')
-                    .includes(searchValue.toLowerCase().split(' ').join(''));
-            }
-        });
+        if (searchValue === '') {
+            const fetchData = async () => {
+                const response = await api.getAllVideos();
+                console.log('Response', response);
 
-        setVideos(SearchResults);
+                setVideos(response.data.data);
+            };
+            fetchData();
+        } else {
+            const SearchResults = videos.filter((data) => {
+                if (searchValue === null) {
+                } else {
+                    return data.title
+                        .toLowerCase()
+                        .split(' ')
+                        .join('')
+                        .includes(
+                            searchValue.toLowerCase().split(' ').join('')
+                        );
+                }
+            });
 
-        resetInputField();
+            setVideos(SearchResults);
+
+            resetInputField();
+        }
     };
     return (
-        <div>
+        <div className='searchbar-container'>
             <form className='search'>
                 <input
                     className='search-box'

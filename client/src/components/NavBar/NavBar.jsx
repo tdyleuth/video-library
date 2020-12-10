@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './NavBar.css';
 
 import InsertVideo from '../Video/InsertVideo';
-
+import SearchBar from '../SearchBar/SearchBar';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
 import Logo from '../../Images/video-library-logo.png';
@@ -67,6 +67,8 @@ const NavBar = ({ setIsAuthed, isAuthed, setVideos, videos }) => {
                     />
                 </a>
             </div>
+            <SearchBar videos={videos} setVideos={setVideos} />
+
             <div className='mobile-container'>
                 <div
                     onClick={navSlide}
