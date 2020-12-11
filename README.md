@@ -1,6 +1,7 @@
 # Video-library
 
-A Full stack MERN web application for storing Video information content in a library format where user can browse and search for Video by title or register/login to insert a video.
+A Full stack MERN web application for storing Video information content in a library format where user can browse and search for Video by title or register/login to insert a video. Most of the front-end was built using custom CSS without the reliability a CSS libraries.
+
 <img width="1438" alt="ss" src="https://user-images.githubusercontent.com/40449202/101721360-a552c780-3a5c-11eb-881b-adb362ce7e5f.png">
 
 <h2>Project Status:</h2>
