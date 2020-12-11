@@ -11,6 +11,7 @@ const Login = ({
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordToggle, setPasswordToggle] = useState(false);
+    const [validationMessage, setValidationMessage] = useState(false);
 
     const handleEmailInputChanges = (e) => {
         setEmail(e.target.value);
@@ -42,7 +43,11 @@ const Login = ({
                 alert(`${email} is logged in!'`);
             }
         } catch (err) {
-            alert('Login Failed! Try again');
+            setValidationMessage(true);
+
+            setTimeout(() => {
+                setValidationMessage(false);
+            }, 4000);
         }
     };
 
@@ -87,7 +92,13 @@ const Login = ({
                     <label className='password-label'>
                         <b>Password: </b>
                     </label>
-                    <div className='pass-wrapper'>
+                    <div
+                        className={
+                            validationMessage
+                                ? 'pass-wrapper shake'
+                                : 'pass-wrapper'
+                        }
+                    >
                         <input
                             onChange={handlePasswordInputChanges}
                             value={password}
@@ -103,6 +114,17 @@ const Login = ({
                             onClick={handlePasswordToggle}
                         ></i>
                     </div>
+                    {validationMessage ? (
+                        <p id='show-validation-message'>
+                            The email or password you entered is incorrect.
+                            Please try again!
+                        </p>
+                    ) : (
+                        <p id='hide-validation-message'>
+                            The email or password you entered is incorrect.
+                            Please try again!
+                        </p>
+                    )}
                     <div className='button-container'>
                         <button className='form-login-button'>Submit</button>
                     </div>

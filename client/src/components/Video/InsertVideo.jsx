@@ -65,7 +65,7 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
                 type,
             };
 
-            const newVideoList = [...videos, newVideo];
+            const newVideoList = [newVideo, ...videos];
 
             setVideos(newVideoList);
 

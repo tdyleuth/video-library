@@ -16,7 +16,7 @@ const VideoList = ({ isAuthed, setVideos, videos }) => {
             return response;
         }
         fetchData();
-    }, []);
+    }, [setVideos]);
 
     const openVideoPopup = (
         id,
@@ -38,7 +38,6 @@ const VideoList = ({ isAuthed, setVideos, videos }) => {
 
     const closeVideoPopup = () => {
         setSelectedVideo({});
-        console.log('dgsadd', selectedVideo);
     };
 
     return (
