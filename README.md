@@ -7,9 +7,6 @@ A Full stack MERN web application for storing Video information content in a lib
 <h2>Project Status:</h2>
 <small>This project is still in progess. Features currently still working on include: Updating Video functionality, dynamic rendering of deleted videos, updating email and password of users, and filter component for videos. </small>
 
-<h3>Estimated Time To Complete:<h3>
- <small>1-2 Weeks<small>
-
 <h2>Installation:</h2>
 
 Install Mongo DB:
