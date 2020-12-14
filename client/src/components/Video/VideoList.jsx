@@ -6,10 +6,10 @@ import VideoPopup from '../Video/VideoPopup';
 
 const VideoList = ({ isAuthed, setVideos, videos }) => {
     const [selectedVideo, setSelectedVideo] = useState([]);
+
     useEffect(() => {
         async function fetchData() {
             const response = await api.getAllVideos();
-            console.log('Response', response);
 
             setVideos(response.data.data);
 

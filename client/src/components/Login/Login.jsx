@@ -4,9 +4,9 @@ import api from '../../api/api';
 
 const Login = ({
     setIsAuthed,
-    isAuthed,
     setShowLoginModal,
     setShowSignupModal,
+    setShowAlertMessage,
 }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -39,10 +39,14 @@ const Login = ({
                 setShowLoginModal(false);
                 setIsAuthed(true);
                 setPasswordToggle(false);
+                setShowAlertMessage(true);
 
-                alert(`${email} is logged in!'`);
+                setTimeout(() => {
+                    setShowAlertMessage(false);
+                }, 2400);
             }
         } catch (err) {
+            console.log(err);
             setValidationMessage(true);
 
             setTimeout(() => {

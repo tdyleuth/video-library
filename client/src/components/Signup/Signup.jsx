@@ -2,7 +2,14 @@ import React, { useState } from 'react';
 import './Signup.css';
 import api from '../../api/api';
 
-const Signup = ({ setShowSignupModal, setShowLoginModal, setIsAuthed }) => {
+const Signup = ({
+    setShowSignupModal,
+    setShowLoginModal,
+    setIsAuthed,
+    isAuthed,
+    setShowSignupMessageAlert,
+    showSignupMessageAlert,
+}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [passwordToggle, setPasswordToggle] = useState(false);
@@ -21,17 +28,22 @@ const Signup = ({ setShowSignupModal, setShowLoginModal, setIsAuthed }) => {
 
         try {
             const response = await api.signup(payload);
+
             if (response.data.success === true) {
                 const { token } = response.data;
                 localStorage.setItem('token', token);
 
                 setShowSignupModal(false);
-                setIsAuthed(true);
 
-                alert(`Signup Success!'`);
+                setShowSignupMessageAlert(true);
+
+                setIsAuthed(true);
             }
+            setTimeout(() => {
+                setShowSignupMessageAlert(false);
+            }, 2400);
         } catch (err) {
-            console.error('Signup failed');
+            console.log(err);
         }
     };
 

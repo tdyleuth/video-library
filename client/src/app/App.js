@@ -6,6 +6,7 @@ import VideoList from '../components/Video/VideoList';
 function App() {
     const [isAuthed, setIsAuthed] = useState(false);
     const [videos, setVideos] = useState([]);
+    const [showAlertMessage, setShowAlertMessage] = useState(false);
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem('token');
@@ -21,6 +22,8 @@ function App() {
                 setIsAuthed={setIsAuthed}
                 videos={videos}
                 setVideos={setVideos}
+                showAlertMessage={showAlertMessage}
+                setShowAlertMessage={setShowAlertMessage}
             />
             <VideoList
                 isAuthed={isAuthed}
