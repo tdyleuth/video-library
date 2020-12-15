@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './VideoCard.css';
-import api from '../../api/api';
 
-const VideoCard = ({ video, setVideos, isAuthed, videos, openVideoPopup }) => {
-    const [isFadingOut, setIsFadingOut] = useState(false);
+const VideoCard = ({ video, openVideoPopup, isFadingOut }) => {
     //Covert release date into Year-Month-Day format
     const dateObj = new Date(video.releaseDate);
     const month = dateObj.getUTCMonth() + 1;
@@ -12,29 +10,6 @@ const VideoCard = ({ video, setVideos, isAuthed, videos, openVideoPopup }) => {
 
     let newdate = year + '-' + month + '-' + day;
 
-    const callDeleteVideoFunction = (e) => {
-        e.preventDefault();
-        const videoId = e.currentTarget.id;
-        try {
-            const deleteVideo = async () => {
-                const response = await api.deleteVideoById(videoId);
-
-                console.log('Delete Video Response', response);
-
-                const updatedVideoList = videos.filter(
-                    (vid) => vid._id !== videoId
-                );
-
-                alert('Successfully Delete');
-                setIsFadingOut(true);
-                setVideos(updatedVideoList);
-            };
-
-            deleteVideo();
-        } catch (err) {
-            console.error(err);
-        }
-    };
     return (
         <div
             className={isFadingOut ? 'videoCard-fadeout' : 'videoCard'}
@@ -59,20 +34,6 @@ const VideoCard = ({ video, setVideos, isAuthed, videos, openVideoPopup }) => {
                 {video.release_date} | <i className='fa fa-star'></i>{' '}
                 {video.rating}
             </p>
-            {isAuthed ? (
-                <div className='videoCard-ctrls'>
-                    <button
-                        id={video._id}
-                        onClick={callDeleteVideoFunction}
-                        className='delete-button'
-                    >
-                        Delete
-                    </button>
-                    <button id={video._id} className='update-button'>
-                        Update
-                    </button>
-                </div>
-            ) : null}
         </div>
     );
 };

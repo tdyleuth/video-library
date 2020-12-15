@@ -14,12 +14,17 @@ const NavBar = ({
     videos,
     setShowAlertMessage,
     showAlertMessage,
+    setSelectedVideo,
+    setShowSignupMessageAlert,
+    showSignupMessageAlert,
+    showDeletedMessageAlert,
+    setShowVideoAddedMessageAlert,
+    showVideoAddedMessageAlert,
 }) => {
     const [showModal, setShowModal] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
     const [showSignupModal, setShowSignupModal] = useState(false);
     const [showSidebar, setShowSidebar] = useState(false);
-    const [showSignupMessageAlert, setShowSignupMessageAlert] = useState(false);
 
     const logOff = (e) => {
         e.preventDefault();
@@ -38,6 +43,7 @@ const NavBar = ({
         let divOverlay = document.createElement('div');
         divOverlay.id = 'overlay';
         document.body.appendChild(divOverlay);
+        setSelectedVideo({});
         setShowSidebar(false);
         setShowModal(true);
     };
@@ -46,11 +52,13 @@ const NavBar = ({
         let divOverlay = document.createElement('div');
         divOverlay.id = 'overlay';
         document.body.appendChild(divOverlay);
+        setSelectedVideo({});
         setShowSidebar(false);
         setShowLoginModal(true);
     };
 
     const callShowSignupModalFunction = () => {
+        setSelectedVideo({});
         setShowSidebar(false);
         setShowSignupModal(true);
     };
@@ -92,6 +100,22 @@ const NavBar = ({
                         &times;
                     </span>
                     Success! Account has been created.
+                </div>
+            ) : null}
+            {showDeletedMessageAlert === true && isAuthed === true ? (
+                <div className='show-alert delete-success'>
+                    <span onClick={closeAlert} className='closebtn'>
+                        &times;
+                    </span>
+                    Video has been deleted!
+                </div>
+            ) : null}
+            {showVideoAddedMessageAlert === true && isAuthed === true ? (
+                <div className='show-alert video-added-success'>
+                    <span onClick={closeAlert} className='closebtn'>
+                        &times;
+                    </span>
+                    Video has been added!
                 </div>
             ) : null}
             <nav className='nav-wrap'>
@@ -160,6 +184,12 @@ const NavBar = ({
                             setShowModal={setShowModal}
                             setVideos={setVideos}
                             videos={videos}
+                            setShowVideoAddedMessageAlert={
+                                setShowVideoAddedMessageAlert
+                            }
+                            showVideoAddedMessageAlert={
+                                showVideoAddedMessageAlert
+                            }
                         />
                     </div>
                 ) : null}

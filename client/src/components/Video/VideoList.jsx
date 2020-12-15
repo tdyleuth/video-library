@@ -4,9 +4,16 @@ import './VideoList.css';
 import VideoCard from './VideoCard';
 import VideoPopup from '../Video/VideoPopup';
 
-const VideoList = ({ isAuthed, setVideos, videos }) => {
-    const [selectedVideo, setSelectedVideo] = useState([]);
-
+const VideoList = ({
+    isAuthed,
+    setVideos,
+    videos,
+    selectedVideo,
+    setSelectedVideo,
+    setShowDeletedMessageAlert,
+    ShowDeletedMessageAlert,
+}) => {
+    const [isFadingOut, setIsFadingOut] = useState(false);
     useEffect(() => {
         async function fetchData() {
             const response = await api.getAllVideos();
@@ -51,6 +58,7 @@ const VideoList = ({ isAuthed, setVideos, videos }) => {
                         video={video}
                         videos={videos}
                         setVideos={setVideos}
+                        isFadingOut={isFadingOut}
                     />
                 ))}
             </div>
@@ -59,6 +67,14 @@ const VideoList = ({ isAuthed, setVideos, videos }) => {
                 <VideoPopup
                     selectedVideo={selectedVideo}
                     closeVideoPopup={closeVideoPopup}
+                    isAuthed={isAuthed}
+                    setVideos={setVideos}
+                    videos={videos}
+                    setSelectedVideo={setSelectedVideo}
+                    setShowDeletedMessageAlert={setShowDeletedMessageAlert}
+                    ShowDeletedMessageAlert={ShowDeletedMessageAlert}
+                    setIsFadingOut={setIsFadingOut}
+                    isFadingOut={isFadingOut}
                 />
             ) : null}
         </>

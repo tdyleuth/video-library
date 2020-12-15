@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import './InsertVideo.css';
 import api from '../../api/api';
 
-const InsertVideo = ({ setShowModal, videos, setVideos }) => {
+const InsertVideo = ({
+    setShowModal,
+    videos,
+    setVideos,
+    setShowVideoAddedMessageAlert,
+}) => {
     const [title, setTitle] = useState('');
     const [rating, setRating] = useState('');
     const [releaseDate, setReleaseDate] = useState('');
@@ -69,9 +74,13 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
 
             setVideos(newVideoList);
 
-            setShowModal(false);
+            setShowVideoAddedMessageAlert(true);
 
-            alert('Video Submission Successful!');
+            setTimeout(() => {
+                setShowVideoAddedMessageAlert(false);
+            }, 2400);
+
+            setShowModal(false);
 
             const resetInputField = () => {
                 setTitle('');
@@ -136,7 +145,8 @@ const InsertVideo = ({ setShowModal, videos, setVideos }) => {
                     >
                         <option value='Movie'>Movie</option>
                         <option value='TV Show'>TV Show</option>
-                        <option value='Doucmentary'>Documentary</option>
+                        <option value='Documentary'>Documentary</option>
+                        <option value='Animation'>Animation</option>
                     </select>
 
                     <label className='rating-label'>

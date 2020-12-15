@@ -236,6 +236,8 @@
     }
 }
 
+/* Message Alerts */
+
 .show-alert {
     padding: 20px;
     /* margin-top: 8rem; */
@@ -278,7 +280,15 @@
     background-color: #c0290f;
 }
 
+.show-alert.delete-success {
+    background-color: #c0290f;
+}
+
 .show-alert.signup-success {
+    background-color: #4caf50;
+}
+
+.show-alert.video-added-success {
     background-color: #4caf50;
 }
 

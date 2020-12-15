@@ -23,6 +23,11 @@
     font-weight: bold;
 }
 
+.close-button:hover {
+    color: rgb(79, 135, 219);
+    background-color: transparent;
+}
+
 .insert-video-form {
     display: flex;
     align-items: center;
