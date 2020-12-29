@@ -7,11 +7,16 @@ function App() {
     const [isAuthed, setIsAuthed] = useState(false);
     const [videos, setVideos] = useState([]);
     const [selectedVideo, setSelectedVideo] = useState([]);
+    const [showUpdateVideoModal, setShowUpdateVideoModal] = useState(false);
     const [showAlertMessage, setShowAlertMessage] = useState(false);
     const [showSignupMessageAlert, setShowSignupMessageAlert] = useState(false);
     const [showDeletedMessageAlert, setShowDeletedMessageAlert] = useState(
         false
     );
+    const [
+        showVideoUpdatedMessageAlert,
+        setShowVideoUpdatedMessageAlert,
+    ] = useState(false);
     const [
         showVideoAddedMessageAlert,
         setShowVideoAddedMessageAlert,
@@ -40,6 +45,12 @@ function App() {
                 showDeletedMessageAlert={showDeletedMessageAlert}
                 setShowVideoAddedMessageAlert={setShowVideoAddedMessageAlert}
                 showVideoAddedMessageAlert={showVideoAddedMessageAlert}
+                showVideoUpdatedMessageAlert={showVideoUpdatedMessageAlert}
+                setShowVideoUpdatedMessageAlert={
+                    setShowVideoUpdatedMessageAlert
+                }
+                setShowUpdateVideoModal={setShowUpdateVideoModal}
+                showUpdateVideoModal={showUpdateVideoModal}
             />
             <VideoList
                 isAuthed={isAuthed}
@@ -50,6 +61,12 @@ function App() {
                 setSelectedVideo={setSelectedVideo}
                 setShowDeletedMessageAlert={setShowDeletedMessageAlert}
                 showDeletedMessageAlert={showDeletedMessageAlert}
+                showVideoUpdatedMessageAlert={showVideoUpdatedMessageAlert}
+                setShowVideoUpdatedMessageAlert={
+                    setShowVideoUpdatedMessageAlert
+                }
+                setShowUpdateVideoModal={setShowUpdateVideoModal}
+                showUpdateVideoModal={showUpdateVideoModal}
             />
         </>
     );

@@ -23,6 +23,7 @@ const SearchBar = ({ setVideos, videos }) => {
             };
             fetchData();
         } else {
+            // eslint-disable-next-line
             const SearchResults = videos.filter((data) => {
                 if (searchValue === null) {
                 } else {

@@ -78,7 +78,7 @@ const Login = ({
                                 setShowLoginModal(false);
                                 setPasswordToggle(false);
                             }}
-                            className='close-button'
+                            id='close-button'
                         >
                             X
                         </button>
