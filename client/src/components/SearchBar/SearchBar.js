@@ -64,7 +64,8 @@ const SearchBar = ({ setVideos, videos, setSelectedVideo }) => {
                         );
                 }
             });
-
+            setShowClearSearchButton(true);
+            setShowDropDown(false);
             setVideos(searchResults);
             setSelectedVideo('');
 
