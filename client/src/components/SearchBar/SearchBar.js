@@ -50,7 +50,11 @@ const SearchBar = ({ setVideos, videos }) => {
             fetchData();
         } else {
             // eslint-disable-next-line
+<<<<<<< HEAD
             const searchResults = videos.filter((data) => {
+=======
+            const SearchResults = videos.filter((data) => {
+>>>>>>> b2666f41e61f484958174ed1ce1c191688a724e6
                 if (searchValue === null) {
                 } else {
                     return data.title

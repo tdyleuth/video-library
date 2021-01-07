@@ -9,7 +9,7 @@ const UpdateVideo = ({
     setSelectedVideo,
     setVideos,
 }) => {
-    async function fetchData() {
+    async function fetchVideoData() {
         const response = await api.getAllVideos();
 
         setVideos(response.data.data);
@@ -18,6 +18,8 @@ const UpdateVideo = ({
     }
 
     const [video, setVideo] = useState(selectedVideo);
+
+    //Format Date to yyyy-mm-dd format
     let date = new Date(video.releaseDate);
     let year = date.getFullYear();
     let month = date.getMonth() + 1;
@@ -60,7 +62,7 @@ const UpdateVideo = ({
             }, 2400);
             setShowUpdateVideoModal(false);
             setSelectedVideo(video);
-            fetchData();
+            fetchVideoData();
         } catch (err) {
             console.error(err);
         }
