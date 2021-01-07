@@ -29,8 +29,8 @@
 
 #search-button {
     width: 55px;
+    height: 100%;
     position: absolute;
-    top: 1.2rem;
     right: 0;
     background: none;
     border: none;
@@ -85,4 +85,21 @@ button:hover {
 }
 .active li:hover {
     background: rgb(197, 192, 192);
+}
+
+#clearSearchButton {
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    background: none;
+    color: white;
+    background-color: rgb(55, 55, 55);
+    text-align: center;
+    font-size: 17px;
+}
+
+#clearSearchButton:hover {
+    color: black;
+    background: rgb(70, 68, 68);
 }

@@ -3,10 +3,11 @@ import api from '../../api/api';
 
 import './SearchBar.css';
 
-const SearchBar = ({ setVideos, videos }) => {
+const SearchBar = ({ setVideos, videos, setSelectedVideo }) => {
     const [searchValue, setSearchValue] = useState('');
     const [filterDisplay, setFilterDisplay] = useState([]);
     const [showDropDown, setShowDropDown] = useState(false);
+    const [showClearSearchButton, setShowClearSearchButton] = useState(false);
 
     const videoList = videos.map((video) => video.title.toLowerCase());
     const videoListElem = videoList.map((title, i) => {
@@ -46,6 +47,7 @@ const SearchBar = ({ setVideos, videos }) => {
                 const response = await api.getAllVideos();
                 console.log('Response', response);
                 setVideos(response.data.data);
+                setSelectedVideo('');
             };
             fetchData();
         } else {
@@ -64,6 +66,7 @@ const SearchBar = ({ setVideos, videos }) => {
             });
 
             setVideos(searchResults);
+            setSelectedVideo('');
 
             resetInputField();
         }
@@ -80,7 +83,9 @@ const SearchBar = ({ setVideos, videos }) => {
                 .includes(clickedTitle.toLowerCase().split(' ').join(''));
         });
 
+        setSelectedVideo('');
         setVideos(searchTitle);
+        setShowClearSearchButton(true);
         resetInputField();
         setShowDropDown(false);
     };
@@ -127,13 +132,17 @@ const SearchBar = ({ setVideos, videos }) => {
                     >
                         {searchValue.length < 1 ? videoListElem : filterDisplay}
                     </div>
-                    <button
-                        id='search-button'
-                        onClick={callSearchFunction}
-                        type='submit'
-                    >
-                        <i className='fa fa-search'></i>
-                    </button>
+                    {showClearSearchButton !== true ? (
+                        <button
+                            id='search-button'
+                            onClick={callSearchFunction}
+                            type='submit'
+                        >
+                            <i className='fa fa-search'></i>
+                        </button>
+                    ) : (
+                        <button id='clearSearchButton'>CLEAR SEARCH</button>
+                    )}
                 </div>
             </form>
         </div>

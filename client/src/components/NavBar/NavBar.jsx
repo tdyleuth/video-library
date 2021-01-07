@@ -138,7 +138,11 @@ const NavBar = ({
                         />
                     </a>
                 </div>
-                <SearchBar videos={videos} setVideos={setVideos} />
+                <SearchBar
+                    videos={videos}
+                    setVideos={setVideos}
+                    setSelectedVideo={setSelectedVideo}
+                />
 
                 <div className='mobile-container'>
                     <div
