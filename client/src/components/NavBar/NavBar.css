@@ -292,6 +292,10 @@
     background-color: #4caf50;
 }
 
+.show-alert.video-updated-success {
+    background-color: #4caf50;
+}
+
 .closebtn {
     margin-left: 15px;
     color: white;

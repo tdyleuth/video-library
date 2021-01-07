@@ -12,6 +12,8 @@ const VideoPopup = ({
     setVideos,
     setIsFadingOut,
     IsFadingOut,
+    setShowUpdateVideoModal,
+    showUpdateVideoModal,
 }) => {
     //Convert release date into Year-Month-Day format
     const dateObj = new Date(selectedVideo.releaseDate);
@@ -51,47 +53,62 @@ const VideoPopup = ({
         }
     };
 
-    console.log('fasfas', IsFadingOut);
+    const openUpdateVideoModal = () => {
+        setShowUpdateVideoModal(true);
+    };
+
     return (
-        <section className='popup'>
-            <div className='header'>
-                <button onClick={closeVideoPopup} className='close-button'>
-                    X
-                </button>
-            </div>
-            <div className='title'>
-                <h2>
-                    {selectedVideo.title} <span>({newdate})</span>
-                    <p className='rating'>
-                        Rating: <i className='fa fa-star'></i>{' '}
-                        {selectedVideo.rating}
-                    </p>
-                </h2>
-            </div>
-            <div className='content'>
-                <div className='synopsis'>
-                    <img
-                        alt={selectedVideo.title + 'cover'}
-                        src={selectedVideo.coverImage}
-                    />
-                    <p>{selectedVideo.synopsis}</p>
-                </div>
-                {isAuthed ? (
-                    <div className='popup-button-container'>
-                        <button className='update-button' id={selectedVideo.id}>
-                            Update Video
-                        </button>
+        <>
+            {showUpdateVideoModal === false ? (
+                <section className='popup'>
+                    <div className='header'>
                         <button
-                            id={selectedVideo.id}
-                            onClick={callDeleteVideoFunction}
-                            className='delete-button'
+                            onClick={closeVideoPopup}
+                            className='close-button'
                         >
-                            Delete Video
+                            X
                         </button>
                     </div>
-                ) : null}
-            </div>
-        </section>
+                    <div id='title'>
+                        <h2>
+                            {selectedVideo.title} <span>({newdate})</span>
+                            <p id='type'>Type: {selectedVideo.type}</p>
+                            <p id='rating'>
+                                Rating: <i className='fa fa-star'></i>{' '}
+                                {selectedVideo.rating}
+                            </p>
+                        </h2>
+                    </div>
+                    <div className='content'>
+                        <div className='synopsis'>
+                            <img
+                                alt={selectedVideo.title + 'cover'}
+                                src={selectedVideo.coverImage}
+                            />
+                            <p>{selectedVideo.synopsis}</p>
+                        </div>
+                        {isAuthed ? (
+                            <div className='popup-button-container'>
+                                <button
+                                    className='update-button'
+                                    onClick={openUpdateVideoModal}
+                                    id={selectedVideo.id}
+                                >
+                                    Edit Video
+                                </button>
+                                <button
+                                    id={selectedVideo.id}
+                                    onClick={callDeleteVideoFunction}
+                                    className='delete-button'
+                                >
+                                    Delete Video
+                                </button>
+                            </div>
+                        ) : null}
+                    </div>
+                </section>
+            ) : null}
+        </>
     );
 };
 export default VideoPopup;

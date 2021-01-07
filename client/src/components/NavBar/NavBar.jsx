@@ -20,6 +20,7 @@ const NavBar = ({
     showDeletedMessageAlert,
     setShowVideoAddedMessageAlert,
     showVideoAddedMessageAlert,
+    showVideoUpdatedMessageAlert,
 }) => {
     const [showModal, setShowModal] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
@@ -116,6 +117,14 @@ const NavBar = ({
                         &times;
                     </span>
                     Video has been added!
+                </div>
+            ) : null}
+            {showVideoUpdatedMessageAlert === true && isAuthed === true ? (
+                <div className='show-alert video-updated-success'>
+                    <span onClick={closeAlert} className='closebtn'>
+                        &times;
+                    </span>
+                    Video has been updated!
                 </div>
             ) : null}
             <nav className='nav-wrap'>

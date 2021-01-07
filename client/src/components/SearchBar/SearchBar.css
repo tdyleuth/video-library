@@ -1,61 +1,88 @@
 .searchbar-container {
-    display: flex;
     width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 .search {
-    display: flex;
-    flex-direction: row;
+    width: 75%;
     flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
+    background-color: #fff;
+    box-shadow: 0px 1px 5px 3px rba(0, 0, 0);
+    padding: 0;
+    margin-left: 3rem;
+    border-radius: 4px;
 }
 
 .search-wrapper {
     position: relative;
     display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
 }
 
 .fa.fa-search {
-    color: rgb(255, 255, 255);
     font-size: 25px;
-    z-index: 9999;
-    position: absolute;
-    top: 30%;
-    right: 12px;
+    color: black;
 }
 
 #search-button {
-    padding: 10px;
-    position: relative;
-    width: 60px;
-    height: 56px;
-    color: white;
-    margin: 6px 0 0 0px;
-    cursor: pointer;
-    border-left: none;
-    font-size: 15px;
-    background-color: #3a3d41;
-    border-radius: 2px;
+    width: 55px;
+    position: absolute;
+    top: 1.2rem;
+    right: 0;
+    background: none;
+    border: none;
+    text-align: center;
 }
 button:hover {
     background-color: #78797b;
     color: rgb(255, 255, 255);
 }
-.search > input[type='text'] {
-    width: 50%;
-    min-width: 200px;
-    font-size: 20px;
-}
 
-.search-box {
-    display: flex;
+#search-box {
+    position: relative;
     width: 100%;
-    padding: 10px;
     background-color: #fff;
-    border: 3px solid black;
+    border: none;
+    outline: none;
     color: #000;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 300;
     transition: 0.4s ease-out;
-    border-radius: 2px;
+    border-radius: 5px;
+    box-shadow: 0px 1px 5px rba(0, 0, 0);
+}
+
+.title-dropdown {
+    color: rgb(0, 0, 0);
+    max-height: 280px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.title-dropdown li {
+    list-style-type: none;
+    padding: 8px 12px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 3px;
+    display: none;
+}
+
+.active {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    list-style-type: none;
+    padding: 8px 12px;
+    width: 100%;
+    margin-top: 3rem;
+    cursor: pointer;
+    border-radius: 3px;
+    background: white;
+}
+.active li:hover {
+    background: rgb(197, 192, 192);
 }

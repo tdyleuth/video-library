@@ -13,7 +13,7 @@
     text-align: center;
 }
 
-.close-button {
+#close-button {
     padding: 0;
     cursor: pointer;
     background: transparent;

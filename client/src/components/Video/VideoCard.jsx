@@ -20,7 +20,8 @@ const VideoCard = ({ video, openVideoPopup, isFadingOut }) => {
                     video.rating,
                     video.releaseDate,
                     video.synopsis,
-                    video.coverImage
+                    video.coverImage,
+                    video.type
                 )
             }
         >

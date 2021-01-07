@@ -3,6 +3,7 @@ import api from '../../api/api';
 import './VideoList.css';
 import VideoCard from './VideoCard';
 import VideoPopup from '../Video/VideoPopup';
+import UpdateVideo from '../Video/UpdateVideo';
 
 const VideoList = ({
     isAuthed,
@@ -12,6 +13,9 @@ const VideoList = ({
     setSelectedVideo,
     setShowDeletedMessageAlert,
     ShowDeletedMessageAlert,
+    setShowVideoUpdatedMessageAlert,
+    setShowUpdateVideoModal,
+    showUpdateVideoModal,
 }) => {
     const [isFadingOut, setIsFadingOut] = useState(false);
     useEffect(() => {
@@ -31,7 +35,8 @@ const VideoList = ({
         rating,
         releaseDate,
         synopsis,
-        coverImage
+        coverImage,
+        type
     ) => {
         setSelectedVideo({
             id: id,
@@ -40,6 +45,7 @@ const VideoList = ({
             releaseDate: releaseDate,
             synopsis: synopsis,
             coverImage: coverImage,
+            type: type,
         });
     };
 
@@ -75,7 +81,23 @@ const VideoList = ({
                     ShowDeletedMessageAlert={ShowDeletedMessageAlert}
                     setIsFadingOut={setIsFadingOut}
                     isFadingOut={isFadingOut}
+                    setShowUpdateVideoModal={setShowUpdateVideoModal}
+                    showUpdateVideoModal={showUpdateVideoModal}
                 />
+            ) : null}
+            {showUpdateVideoModal ? (
+                <div className='modal-container'>
+                    <UpdateVideo
+                        setVideos={setVideos}
+                        videos={videos}
+                        selectedVideo={selectedVideo}
+                        setSelectedVideo={setSelectedVideo}
+                        setShowUpdateVideoModal={setShowUpdateVideoModal}
+                        setShowVideoUpdatedMessageAlert={
+                            setShowVideoUpdatedMessageAlert
+                        }
+                    />
+                </div>
             ) : null}
         </>
     );

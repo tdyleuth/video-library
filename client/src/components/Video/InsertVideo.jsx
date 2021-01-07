@@ -143,7 +143,7 @@ const InsertVideo = ({
                         onChange={(e) => handleTypeInputChanges(e.target.value)}
                         value={type}
                     >
-                        <option value='Movie'>Movie</option>
+                        <option defaultValue='Movie'>Movie</option>
                         <option value='TV Show'>TV Show</option>
                         <option value='Documentary'>Documentary</option>
                         <option value='Animation'>Animation</option>

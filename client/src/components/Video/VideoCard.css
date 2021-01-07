@@ -27,6 +27,7 @@
     cursor: pointer;
     border-radius: 5px;
     color: white;
+    border: solid rgb(58, 57, 57) 1px;
 }
 
 .videoCard-fadeout {
@@ -83,7 +84,7 @@
     transform: scale(1.09);
 }
 .videoCard > img {
-    width: 250px;
+    width: 280px;
     box-shadow: 0px 0px 5px 1px #000;
     object-fit: contain;
 }
