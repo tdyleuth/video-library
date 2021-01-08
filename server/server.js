@@ -1,7 +1,7 @@
 require('dotenv').config();
 const config = require('./config');
 const express = require('express');
-const server = express();
+const app = express();
 const path = require('path');
 
 const cors = require('cors');
@@ -14,24 +14,24 @@ const videoRouter = require('./routes/video-router');
 const userRouter = require('./routes/user-router');
 
 //Middleware
-server.use(cors());
-server.use(logger('dev'));
-server.use(bodyParser.json());
+app.use(cors());
+app.use(logger('dev'));
+app.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
 //Connect to MongoDB
 db.on('error', console.error.bind(console, 'Mongo connection error:'));
 
-server.get('/', (req, res) => {
-    res.send('WELCOME TO THE VIDEO LIBRARY API');
-});
+app.use('/api', videoRouter, userRouter);
 
-server.use('/api', videoRouter, userRouter);
+/*Adds the react production build to serve react requests*/
+app.use(express.static(path.join(__dirname, 'client', 'build', 'index.html')));
+/*React root*/
 
-server.get('*', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 //Start the server
-server.listen(config.PORT, () =>
+app.listen(config.PORT, () =>
     console.log(`Server is running on port ${config.PORT}`)
 );
