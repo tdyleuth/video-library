@@ -139,7 +139,7 @@ const SearchBar = ({ setVideos, videos, setSelectedVideo }) => {
                             onClick={callSearchFunction}
                             type='submit'
                         >
-                            <i className='fa fa-search'></i>
+                            SEARCH
                         </button>
                     ) : (
                         <button id='clearSearchButton'>CLEAR SEARCH</button>
