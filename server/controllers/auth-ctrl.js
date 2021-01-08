@@ -1,5 +1,5 @@
 const User = require('../models/user-model');
-const { TOKENSecret } = require('../config');
+const { secret } = require('../config');
 const jwt = require('jsonwebtoken');
 
 //Register new User
@@ -16,7 +16,7 @@ signup = (req, res) => {
                 {
                     id: user._id,
                 },
-                TOKENSecret,
+                secret,
                 { expiresIn: '2h' }
             );
             return res.status(201).json({
@@ -56,7 +56,7 @@ loginUser = (req, res) => {
                     });
                 } else {
                     //Create JWT when logged in successful
-                    const token = jwt.sign({ email }, TOKENSecret, {
+                    const token = jwt.sign({ email }, secret, {
                         expiresIn: '1h',
                     });
                     res.status(200).json({

@@ -1,13 +1,15 @@
 require('dotenv').config();
 
-TOKENSecret = process.env.JWT_SECRET || 'Secret';
+const secret = process.env.JWT_SECRET || 'secret for development';
 
-MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/videos';
+const MONGO_URI =
+    process.env.MONGO_URI ||
+    'mongodb+srv://tdyleuth:Thrice909!@cluster0.jgo74.mongodb.net/videos?retryWrites=true&w=majority';
 
-PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 module.exports = {
     MONGO_URI,
-    TOKENSecret,
+    secret,
     PORT,
 };
