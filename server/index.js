@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Connect to MongoDB
 db.on('error', console.error.bind(console, 'Mongo connection error:'));
 
-app.use(express.static(path.join(__dirname, './client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 app.use('/api', videoRouter, userRouter);
 
