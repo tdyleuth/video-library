@@ -23,7 +23,7 @@ db.on('error', console.error.bind(console, 'Mongo connection error:'));
 
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
-app.use('/api', videoRouter, userRouter);
+// app.use('/api', videoRouter, userRouter);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
