@@ -1,7 +1,7 @@
 {
     "name": "server",
     "version": "1.0.0",
-    "description": "mongoAtlas",
+    "description": "mongodb express",
     "main": "index.js",
     "scripts": {
         "start": "cd server && npm install && node index.js",

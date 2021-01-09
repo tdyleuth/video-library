@@ -21,10 +21,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //Connect to MongoDB
 db.on('error', console.error.bind(console, 'Mongo connection error:'));
 
-app.get('/', (req, res) => {
-    res.send('WELCOME TO THE VIDEO LIBRARY API');
-});
-
 app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 app.use('/api', videoRouter, userRouter);
