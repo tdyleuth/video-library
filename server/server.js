@@ -7,7 +7,6 @@ const path = require('path');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
-server.use(express.static(path.join(__dirname, 'client', 'build')));
 
 const db = require('./db');
 const videoRouter = require('./routes/video-router');
@@ -17,16 +16,18 @@ const userRouter = require('./routes/user-router');
 app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //Connect to MongoDB
 db.on('error', console.error.bind(console, 'Mongo connection error:'));
 
-app.use('/api', videoRouter, userRouter);
+app.get('/', (req, res) => {
+    res.send('WELCOME TO THE VIDEO LIBRARY API');
+});
 
-/*Adds the react production build to serve react requests*/
-app.use(express.static(path.join(__dirname, 'client', 'build', 'index.html')));
-/*React root*/
+app.use(express.static(path.join(__dirname, 'client', 'build')));
+
+app.use('/api', videoRouter, userRouter);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
