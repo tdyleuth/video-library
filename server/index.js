@@ -26,7 +26,7 @@ app.use(express.static(path.join(__dirname, './client/build')));
 app.use('/api', videoRouter, userRouter);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, './client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 //Start the server
 app.listen(config.PORT, () =>
