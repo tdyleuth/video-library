@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import NavBar from '../components/NavBar/NavBar';
 import VideoList from '../components/Video/VideoList';
+import NoSearchResults from '../components/MessageAlerts/NoSearchResults';
 
 function App() {
     const [isAuthed, setIsAuthed] = useState(false);
@@ -21,6 +22,7 @@ function App() {
         showVideoAddedMessageAlert,
         setShowVideoAddedMessageAlert,
     ] = useState(false);
+    const [showNoSearchResults, setShowNoSearchResults] = useState(false);
 
     useEffect(() => {
         const loggedInUser = localStorage.getItem('token');
@@ -51,7 +53,9 @@ function App() {
                 }
                 setShowUpdateVideoModal={setShowUpdateVideoModal}
                 showUpdateVideoModal={showUpdateVideoModal}
+                setShowNoSearchResults={setShowNoSearchResults}
             />
+            {showNoSearchResults ? <NoSearchResults /> : null}
             <VideoList
                 isAuthed={isAuthed}
                 setIsAuthed={setIsAuthed}

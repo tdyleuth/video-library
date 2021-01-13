@@ -3,11 +3,15 @@ import api from '../../api/api';
 
 import './SearchBar.css';
 
-const SearchBar = ({ setVideos, videos, setSelectedVideo }) => {
+const SearchBar = ({
+    setVideos,
+    videos,
+    setSelectedVideo,
+    setShowNoSearchResults,
+}) => {
     const [searchValue, setSearchValue] = useState('');
     const [filterDisplay, setFilterDisplay] = useState([]);
     const [showDropDown, setShowDropDown] = useState(false);
-    const [showClearSearchButton, setShowClearSearchButton] = useState(false);
 
     const videoList = videos.map((video) => video.title.toLowerCase());
     const videoListElem = videoList.map((title, i) => {
@@ -47,6 +51,7 @@ const SearchBar = ({ setVideos, videos, setSelectedVideo }) => {
                 const response = await api.getAllVideos();
                 console.log('Response', response);
                 setVideos(response.data.data);
+                setShowNoSearchResults(false);
                 setSelectedVideo('');
             };
             fetchData();
@@ -64,9 +69,15 @@ const SearchBar = ({ setVideos, videos, setSelectedVideo }) => {
                         );
                 }
             });
-            setShowClearSearchButton(true);
+
             setShowDropDown(false);
-            setVideos(searchResults);
+            if (searchResults.length < 1) {
+                setShowNoSearchResults(true);
+                setVideos([]);
+            } else {
+                setVideos(searchResults);
+            }
+
             setSelectedVideo('');
 
             resetInputField();
@@ -86,7 +97,6 @@ const SearchBar = ({ setVideos, videos, setSelectedVideo }) => {
 
         setSelectedVideo('');
         setVideos(searchTitle);
-        setShowClearSearchButton(true);
         resetInputField();
         setShowDropDown(false);
     };
@@ -116,24 +126,25 @@ const SearchBar = ({ setVideos, videos, setSelectedVideo }) => {
 
     return (
         <div className='searchbar-container'>
-            <form className='search'>
-                <div className='search-wrapper'>
-                    <input
-                        onClick={handleChange}
-                        id='search-box'
-                        value={searchValue}
-                        onChange={handleSearchInputChanges}
-                        type='text'
-                        placeholder='Search for Video...'
-                    />
-                    <div
-                        ref={node}
-                        onClick={searchDropdownTitle}
-                        className={showDropDown ? 'active' : 'title-dropdown'}
-                    >
-                        {searchValue.length < 1 ? videoListElem : filterDisplay}
-                    </div>
-                    {showClearSearchButton !== true ? (
+            <form className='searchbar-form' onSubmit={callSearchFunction}>
+                <i className='fa fa-search'></i>
+                <input
+                    onClick={handleChange}
+                    id='search-input-box'
+                    value={searchValue}
+                    onChange={handleSearchInputChanges}
+                    type='text'
+                    placeholder='Search for Video...'
+                />
+
+                <div
+                    ref={node}
+                    onClick={searchDropdownTitle}
+                    className={showDropDown ? 'active' : 'title-dropdown'}
+                >
+                    {searchValue.length < 1 ? videoListElem : filterDisplay}
+                </div>
+                {/* {showClearSearchButton !== true ? (
                         <button
                             id='search-button'
                             onClick={callSearchFunction}
@@ -142,9 +153,8 @@ const SearchBar = ({ setVideos, videos, setSelectedVideo }) => {
                             SEARCH
                         </button>
                     ) : (
-                        <button id='clearSearchButton'>CLEAR SEARCH</button>
-                    )}
-                </div>
+                        <button onClick={callSearchFunction} id='clearSearchButton'>CLEAR SEARCH</button>
+                    )} */}
             </form>
         </div>
     );

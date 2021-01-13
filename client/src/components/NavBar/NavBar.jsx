@@ -21,6 +21,7 @@ const NavBar = ({
     setShowVideoAddedMessageAlert,
     showVideoAddedMessageAlert,
     showVideoUpdatedMessageAlert,
+    setShowNoSearchResults,
 }) => {
     const [showModal, setShowModal] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
@@ -142,13 +143,11 @@ const NavBar = ({
                     videos={videos}
                     setVideos={setVideos}
                     setSelectedVideo={setSelectedVideo}
+                    setShowNoSearchResults={setShowNoSearchResults}
                 />
 
                 <div className='mobile-container'>
-                    <div
-                        onClick={navSlide}
-                        className={showSidebar ? 'burger toggle' : 'burger'}
-                    >
+                    <div onClick={navSlide} className='burger'>
                         <div className='line1'></div>
                         <div className='line2'></div>
                         <div className='line3'></div>
@@ -159,6 +158,12 @@ const NavBar = ({
                         showSidebar ? 'nav-links nav-active' : 'nav-links'
                     }
                 >
+                    <div onClick={navSlide} className='burger toggle'>
+                        <div className='line1'></div>
+                        <div className='line2'></div>
+                        <div className='line3'></div>
+                    </div>
+
                     {isAuthed ? (
                         <div className='button-container'>
                             <button onClick={logOff} className='signout-button'>

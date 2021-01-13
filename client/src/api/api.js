@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: '/api' || 'http://localhost:3001/api',
+    // use when workling on local server: baseURL: 'http://localhost:3000/api',
+    baseURL: '/api' || 'http://localhost:3000/api',
 });
 
 //Aunthentication
