@@ -221,13 +221,13 @@
         width: 240px;
     }
 
-    .signout-button {
-        margin: 2rem 0 2rem 0;
-        width: 275px;
+    .button-container > .signout-button {
+        margin: 2rem 1rem 2rem 1rem;
+        width: 240px;
     }
 
-    .insert-button {
-        width: 275px;
+    .button-container > .insert-button {
+        width: 240px;
     }
 
     .nav-active {
@@ -315,4 +315,48 @@
     line-height: 20px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+@media screen and (max-width: 400px) {
+    .nav-links {
+        border: none;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: fixed;
+        border-top: none;
+        background-color: #2c3339;
+        font-size: 15px;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in;
+        border-radius: 4px;
+        z-index: 1;
+        overflow: hidden;
+        padding: 0 2rem 0 2rem;
+        border-radius: 4px;
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+    .button-container > .signin-button {
+        margin: 2rem 1rem 2rem 1rem;
+        width: 275px;
+    }
+    .button-container > .signup-button {
+        width: 275px;
+    }
+
+    .button-container > .signout-button {
+        margin: 2rem 1rem 2rem 1rem;
+        width: 275px;
+    }
+
+    .button-container > .insert-button {
+        width: 275px;
+    }
 }

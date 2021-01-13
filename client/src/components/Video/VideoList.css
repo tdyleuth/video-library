@@ -4,3 +4,8 @@
     justify-content: center;
     margin-top: 6rem;
 }
+@media screen and (max-width: 400px) {
+    .video-results {
+        margin-top: 9rem;
+    }
+}
