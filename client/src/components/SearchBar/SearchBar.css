@@ -111,7 +111,7 @@ button:hover {
 @media screen and (max-width: 400px) {
     .searchbar-container {
         position: absolute;
-        margin-top: 8rem;
+        margin-top: 6rem;
         width: 335px;
         padding: 0;
         box-sizing: border-box;
